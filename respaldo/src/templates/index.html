@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+        <meta name="generator" content="Jekyll v4.1.1">
+        <title>Blog</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <script src='https://kit.fontawesome.com/7609863645.js' crossorigin='anonymous'></script>
+
+        <!-- Favicons -->
+        <link rel="apple-touch-icon" href="/docs/4.5/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+        <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+        <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+        <link rel="manifest" href="/docs/4.5/assets/img/favicons/manifest.json">
+        <link rel="mask-icon" href="/docs/4.5/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
+        <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon.ico">
+        <meta name="msapplication-config" content="/docs/4.5/assets/img/favicons/browserconfig.xml">
+        <meta name="theme-color" content="#563d7c">
+
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+            <div class = 'row'>
+                <h3 style="color:#FFFFFF";>Bienvenid@ <b>{{request.user.username}}</b> </h3>
+                <a class="nav-link" href="index">Inicio<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{% url 'list' %}">Blog<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#">Conceptos Constitucionales<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="calendario">Calendario<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#">Tu perfil<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#">Contacto<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/logout">Cerrar sesión<span class="sr-only">(current)</span></a>
+            </div>
+            </li>
+        </ul>
+        <form class="form-inline mt-2 mt-md-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+    <header class="header-inicio">
+        
+        <section class="textos-encabezados">
+            <h1>Conversa, Interesate, Involucrate</h1>
+            <h2>no se que poner aqui</h2>
+        </section> 
+        <svg class = "montaña" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#fff" fill-opacity="1" d="M0,96L205.7,32L411.4,160L617.1,192L822.9,128L1028.6,32L1234.3,64L1440,96L1440,320L1234.3,320L1028.6,320L822.9,320L617.1,320L411.4,320L205.7,320L0,320Z"></path></svg>
+    </header>
+
+    <main>
+        <section class="buscador-cabildos">
+            <h2 class="titulo">Busca tus temas de interes</h2>
+            <div class="buscador">
+                <input type="text" name="search" placeholder="Buscador..">
+            </div>
+            
+        </section>
+        <section class="contenedor sobre-nosotros">
+            <h2 class="titulo">Nuestra idea</h2>
+            <div class="contenedor-sobre-nosotros">
+                <div class="contenido-textos">
+                    <h3>Presentacion</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui aperiam, ipsa, dignissimos iusto, quasi error ab minus accusantium at natus nulla incidunt enim tempore totam dolor architecto? Et, unde ipsum?</p>
+                </div>
+            </div>
+        </section>
+        <section class="contenedor-cabildos">
+            <div class="contenido-cabildos">
+                <h2 class="titulo">Cabildos en linea</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi quia quod delectus unde, nisi illo fugiat beatae facilis. Quibusdam aliquid fugiat quos sed obcaecati optio fugit. Totam consectetur quaerat nobis.</p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
+
+
+<div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+Iconos diseñados por <a href="https://www.flaticon.es/autores/iconixar" title="iconixar">iconixar</a> from <a href="https://www.flaticon.es/" title="Flaticon"> www.flaticon.es</a>
+Iconos diseñados por <a href="https://www.flaticon.es/icono-gratis/conversacion_2270773?term=conversacion&page=3&position=16" title="xnimrodx">xnimrodx</a> from <a href="https://www.flaticon.es/" title="Flaticon"> www.flaticon.es</a>
+Iconos diseñados por <a href="http://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.es/" title="Flaticon"> www.flaticon.es</a>
+Iconos diseñados por <a href="https://www.flaticon.es/autores/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.es/" title="Flaticon"> www.flaticon.es</a>

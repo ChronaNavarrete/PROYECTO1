@@ -1,0 +1,11 @@
+{% load crispy_forms_tags %}
+<h2>Iniciar sesión</h2>
+
+<form method="POST">
+    {{ form|crispy }}
+    {% csrf_token %}
+    <button type="submit">Login</button>
+</form>
+
+<hr />
+<a href="/register">Registrar usuario</a>
