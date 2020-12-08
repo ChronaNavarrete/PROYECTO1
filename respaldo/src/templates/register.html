@@ -1,11 +1,57 @@
-<h2>Registrar usuario</h2>
+{% load static %}
 
-<form method="POST">
-    {{ form.as_p }}
-    {% csrf_token %}
-    <button type="submit">Registrar</button>
-</form>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
 
-<hr />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
-<a href="/login">Iniciar sesión</a>
+
+</head>
+<body>
+    <section>
+        <div class="sidenav">
+            <div class="login-main-text">
+                <h2>Registrar usuario</h2>
+               <p>Ingresa o Registrate aqui para acceder</p>
+            </div>
+         </div>
+         <div class="main">
+            <div class="col-md-6 col-sm-12">
+               <div class="login-form">
+                  <form method="POST" action="">
+                    {% csrf_token %}
+                     <div class="form-group">
+                        <label>Nombre de Usuario</label>
+                        {{form.username}}
+                     </div>
+                     <div class="form-group">
+                        <label>Email</label>
+                        {{form.email}}
+                     </div>
+                     <div class="form-group">
+                        <label>Contraseña</label>
+                        {{form.password1}}
+                     </div>
+                     <div class="form-group">
+                        <label>Verificar Contraseña</label>
+                        {{form.password2}}
+                     </div>
+                     <button type="submit" class="btn btn-secondary">Registrar</button>
+                  </form>
+               </div>
+            </div>
+         </div>
+    </section>
+
+    <a href="/login">Iniciar sesión</a>
+    
+</body>
+
+</html>

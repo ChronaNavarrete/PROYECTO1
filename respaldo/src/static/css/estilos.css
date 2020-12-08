@@ -149,6 +149,7 @@ text-align: justify;
 
 /* buscador cabildos */
 
+/*
 .buscador-cabildos{
     padding: 50px;
     background: #f2f2f2;
@@ -156,7 +157,7 @@ text-align: justify;
     justify-content: space-evenly;
 }
 
-/* barra buscadora */
+ barra buscadora
 
 .buscador{
     display: flex;
@@ -179,6 +180,11 @@ input[type=text]:focus {
     width: 100%;
   }
 
+  */
+
+
+
+
 /* Calendario */
 
 .titulo-calendario{
@@ -198,36 +204,80 @@ input[type=text]:focus {
     padding-left: 20px;
 }
 
-/* experimento */
+/* login registrer */
 
-/* Style the tab buttons */
-.tablink {
-    background-color: #555;
-    color: rgb(255, 255, 255);
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    font-size: 17px;
-    width: 25%;
-  }
-  
-  /* Change background color of buttons on hover */
-  .tablink:hover {
-    background-color: #777;
-  }
-  
-  /* Set default styles for tab content */
-  .tabcontent {
-    color: rgb(255, 255, 255);
-    display: none;
-    padding: 50px;
-    text-align: right;
-  }
-  
-  /* Style each tab content individually */
-  #London {background-color:red;}
-  #Paris {background-color:green;}
-  #Tokyo {background-color:blue;}
-  #Oslo {background-color:orange;}
+body {
+    font-family: "Lato", sans-serif;
+}
+
+
+
+.main-head{
+    height: 150px;
+    background: #FFF;
+   
+}
+
+.sidenav {
+    height: 100%;
+    background-color: #000;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+
+.main {
+    padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+}
+
+@media screen and (max-width: 450px) {
+    .login-form{
+        margin-top: 10%;
+    }
+
+    .register-form{
+        margin-top: 10%;
+    }
+}
+
+@media screen and (min-width: 768px){
+    .main{
+        margin-left: 40%; 
+    }
+
+    .sidenav{
+        width: 40%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+    }
+
+    .login-form{
+        margin-top: 80%;
+    }
+
+    .register-form{
+        margin-top: 20%;
+    }
+}
+
+
+.login-main-text{
+    margin-top: 20%;
+    padding: 60px;
+    color: #fff;
+}
+
+.login-main-text h2{
+    font-weight: 300;
+}
+
+.btn-black{
+    background-color: #000 !important;
+    color: #fff;
+}

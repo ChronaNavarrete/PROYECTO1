@@ -7,6 +7,10 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as do_login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import get_user_model
+
+from .forms import CreateUserForm, LoginForm
+
 
 def welcome(request):
     # Si estamos identificados devolvemos la portada
@@ -17,10 +21,10 @@ def welcome(request):
 
 def register(request):
     # Creamos el formulario de autenticación vacío
-    form = UserCreationForm()
+    form = CreateUserForm()
     if request.method == "POST":
         # Añadimos los datos recibidos al formulario
-        form = UserCreationForm(data=request.POST)
+        form = CreateUserForm(data=request.POST)
         # Si el formulario es válido...
         if form.is_valid():
 
@@ -39,10 +43,10 @@ def register(request):
 
 def login(request):
     # Creamos el formulario de autenticación vacío
-    form = AuthenticationForm()
+    form = LoginForm()
     if request.method == "POST":
         # Añadimos los datos recibidos al formulario
-        form = AuthenticationForm(data=request.POST)
+        form = LoginForm(data=request.POST)
         # Si el formulario es válido...
         if form.is_valid():
             # Recuperamos las credenciales validadas
