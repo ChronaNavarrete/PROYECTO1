@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cabildos</title>
+    <link rel="stylesheet" href="{% static '/css/estilos.css' %}">
+
+</head>
+<body>
+    <div class="topnav">
+        <a class="active" style="color:#FFFFFF">Bienvenid@ <b>{{request.user.username}}</b></a>
+        <a href="index">Inicio</a>
+        <a href="{% url 'list' %}">Blog</a>
+        <a href="calendario">Calendario</a>
+        <a href="#">Cabildos</a>
+        <a href="#">Tu perfil</a>
+        <div class="topnav-right">
+            <a href="/logout">Cerrar sesion</a>
+        </div>
+      </div>
+
+      <main>
+        <section class="contenedor-titulo-cabildos">
+            <h1 class="titulo-cabildos">Calendario de cabildos</h1>
+        </section>
+
+        <section class="contenedor-creacion-cabildo">
+            <!-- formulario creacion cabildo -->
+            <!-- vinculado base de datos, calendario de google  -->
+        </section>
+
+        <section class="contenedor-busqueda-cabildos">
+            <!-- barra de busqueda desplegable, con los conceptos constitucionales-->
+            <!-- conectar cabildos, conceptos, base de datos, llamada desde base de datos, show -->
+        </section>
+
+
+      </main>
+
+</body>
+</html>

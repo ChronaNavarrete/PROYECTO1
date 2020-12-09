@@ -35,6 +35,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('calendario', views.calendario),
     path('index', views.index),
+    path('cabildos', views.cabildos),
     path('accounts/', include('allauth.urls')),
     path('blog', PostListView.as_view(), name='list'),
     path('create/', PostCreateView.as_view(), name='create'),

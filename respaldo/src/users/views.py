@@ -78,5 +78,8 @@ def calendario(request):
 def index(request):
     return render(request, 'index.html')
 
+def cabildos(request):
+    return render(request, 'cabildos.html')
+
 
 

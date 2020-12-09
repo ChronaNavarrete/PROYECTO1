@@ -13,3 +13,6 @@ class LoginForm(AuthenticationForm):
         model = User
         fields = ['username','password']
 
+class Cabildo():
+    pass
+
