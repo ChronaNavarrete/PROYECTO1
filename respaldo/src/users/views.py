@@ -19,7 +19,7 @@ def welcome(request):
     # En otro caso redireccionamos al login
     return redirect('/login')
 
-def register(request):
+def register(request, backend='django.contrib.auth.backends.ModelBackend'):
     # Creamos el formulario de autenticación vacío
     form = CreateUserForm()
     if request.method == "POST":
@@ -34,7 +34,7 @@ def register(request):
             # Si el usuario se crea correctamente 
             if user is not None:
                 # Hacemos el login manualmente
-                do_login(request, user)
+                do_login(request, user, backend='django.contrib.auth.backends.ModelBackend')
                 # Y le redireccionamos a la portada
                 return redirect('/')
 
