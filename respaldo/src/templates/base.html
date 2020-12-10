@@ -30,11 +30,12 @@
     <div class="topnav">
       <a class="active" style="color:#FFFFFF">Bienvenid@ <b>{{request.user.username}}</b></a>
       <a href="index">Inicio</a>
-      <a href="{% url 'list' %}">Blog</a>
+      <a href="temas">Temas Constitucionales</a>
       <a href="calendario">Calendario</a>
-      <a href="#">Cabildos</a>
-      <a href="#">Tu perfil</a>
+      <a href="cabildo">Cabildos</a>
+      <a href="{% url 'list' %}">Blog</a> <!-- para sacar -->
       <div class="topnav-right">
+          <a href="perfil">Tu perfil</a>
           <a href="/logout">Cerrar sesion</a>
       </div>
     </div>

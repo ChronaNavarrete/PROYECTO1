@@ -17,7 +17,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-from users import views
+from views_web import views
 from posts.views import (
     PostListView,
     PostDetailView,
@@ -36,6 +36,10 @@ urlpatterns = [
     path('calendario', views.calendario),
     path('index', views.index),
     path('cabildos', views.cabildos),
+    path('temas', views.temas),
+    path('perfil', views.perfil),
+    path('cabildo', views.cabildo),
+
     path('accounts/', include('allauth.urls')),
     path('blog', PostListView.as_view(), name='list'),
     path('create/', PostCreateView.as_view(), name='create'),

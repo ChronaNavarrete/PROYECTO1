@@ -1,8 +1,7 @@
 from quickchart import QuickChart
 
-def crearpost(id_cabildo, realizado): # realizado es un booleano 
-    if not realizado:
-        pass
+def crearpost(id_cabildo):
+    #if not realizado:
     pass
 
 def creargrafico():
