@@ -288,6 +288,7 @@ body {
 
 .contenedor-titulo-cabildos{
     background: #f2f2f2;
+    height: 600px;
     justify-content: space-evenly;
     width: 100%;
     align-content: left;
