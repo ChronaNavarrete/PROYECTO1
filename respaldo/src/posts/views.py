@@ -1,9 +1,10 @@
-from django.shortcuts import render, get_object_or_404, redirect
+#borre todo lo que habia aqui y lo deje en web_views
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Post, PostView, Like, Comment
 from .forms import PostForm, CommentForm
 
-# Create your views here.
+
 
 class PostListView(ListView):
     model = Post

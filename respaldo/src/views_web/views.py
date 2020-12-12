@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import logout as do_logout
 from django.contrib.auth import authenticate
 from django.contrib.auth.forms import AuthenticationForm
@@ -6,7 +6,16 @@ from django.contrib.auth import login as do_login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
 
+#post
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from posts.models import Post, PostView, Like, Comment, User
+from posts.forms import PostForm, CommentForm
+
+#users
 from users.forms import CreateUserForm, LoginForm
+
+#cabildos
+from cabildos.forms import CrearCabildo
 
 
 def welcome(request):
@@ -76,7 +85,7 @@ def index(request):
     return render(request, 'index.html')
 
 def cabildos(request):
-    return render(request, 'cabildos.html')
+    return render(request, 'cabildos.html')   #?
 
 def perfil(request):
     return render(request, 'perfil.html')
@@ -85,5 +94,13 @@ def temas(request):
     return render(request, 'temas.html')
 
 def cabildo(request):
-    return render(request, 'cabildo.html')
+    form = CrearCabildo()
+    context = {'form':form}
+
+    if request.method == 'POST':
+        form = CrearCabildo(request.POST)
+        if form.is_valid():
+            form.save()
+
+    return render(request, 'cabildo.html', context)    #?
 
