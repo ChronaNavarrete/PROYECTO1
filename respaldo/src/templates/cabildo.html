@@ -40,12 +40,23 @@
     
     <main>
             <section class="contenedor-titulo-cabildos">
-                <h1 class="titulo-cabildos">Cabildos</h1>
+                <h1 class="titulo-cabildos">Agenda aqui tu cabildo</h1>
+
+                <div class="contenedor-creacion-cabildo">
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        {{ form }}
+                        <input type="submit">
+                        <!-- formulario creacion cabildo -->
+                        <!-- vinculado base de datos, calendario de google  -->
+    
+                    </form>
+                </div> 
             </section>
     
-            <section class="contenedor-creacion-cabildo">
-                <!-- formulario creacion cabildo -->
-                <!-- vinculado base de datos, calendario de google  -->
+            <section >
+                
+                
     
                 <!--  -->
             </section>

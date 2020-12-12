@@ -13,15 +13,3 @@ class CommentForm(forms.ModelForm):
     
 
 
-'''sql 
-    id
-    etiquetas = conceptos = temas constitucionales # filtar el archivo bachele 2016
-    nombre
-    fecha
-    hora
-    #link
-    realizado True False
-    conclusion = str
-    aprobacion = %
-'''
-
