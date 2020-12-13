@@ -6,6 +6,7 @@ from django.contrib.auth import login as do_login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
 
+<<<<<<< HEAD
 #post
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from posts.models import Post, PostView, Like, Comment, User
@@ -13,6 +14,9 @@ from posts.forms import PostForm, CommentForm
 
 #users
 from users.forms import CreateUserForm, LoginForm
+=======
+from users.forms import CreateUserForm, LoginForm, UserUpdateForm, ProfileUpdateForm
+>>>>>>> 5a95f456944e731b3b92ac992b9b6cce9be62687
 
 #cabildos
 from cabildos.forms import CrearCabildo
@@ -77,6 +81,19 @@ def logout(request):
     do_logout(request)
     # Redireccionamos a la portada
     return redirect('/')
+
+def profile(request):
+    u_form = UserUpdateForm()
+    p_form = ProfileUpdateForm()
+
+    context = {
+        'u_form' : u_form,
+        'p_form': p_form,
+    }
+
+    return render(request, 'perfil.html', context)
+
+
 
 def calendario(request):
     return render(request, 'calendario.html')
