@@ -6,7 +6,7 @@ from django.contrib.auth import login as do_login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
 
-from users.forms import CreateUserForm, LoginForm
+from users.forms import CreateUserForm, LoginForm, UserUpdateForm, ProfileUpdateForm
 
 
 def welcome(request):
@@ -68,6 +68,19 @@ def logout(request):
     do_logout(request)
     # Redireccionamos a la portada
     return redirect('/')
+
+def profile(request):
+    u_form = UserUpdateForm()
+    p_form = ProfileUpdateForm()
+
+    context = {
+        'u_form' : u_form,
+        'p_form': p_form,
+    }
+
+    return render(request, 'perfil.html', context)
+
+
 
 def calendario(request):
     return render(request, 'calendario.html')
