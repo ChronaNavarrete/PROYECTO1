@@ -167,7 +167,7 @@ body {
 
 
 .main-head{
-    height: 300px; /*150px*/
+    height: 150px; /*150px*/
     background: #FFF;
    
 }
@@ -244,7 +244,7 @@ body {
     text-decoration: none;
 }
 
-/* new navbar  */
+/* navbar  */
 
 /* Add a black background color to the top navigation */
 .topnav {
@@ -304,4 +304,78 @@ body {
     background-color: #f2f2f2 ;
 }
 
-/* prueba nuevo login y registro */
+/* formulario cabildo */
+
+
+.sidenav-cabildo {
+    height: 250px;
+    background-color: #333;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.cabildo-main-text h2{
+    font-weight: 300;
+    font-size: 40px;
+}
+
+.cabildo-main-text{
+    margin-top: 2%;
+    padding: 50px;
+    font-size: 20px;
+    color: #fff;
+}
+
+
+.cabildo-form{
+    padding-top: 30px;
+    padding-left: 50px;
+    align-content: left;
+    align-self: left;
+}
+
+.cabildo-form-right{
+    padding-top: 30px;
+    padding-left: 50px;
+    align-content: right;
+    align-self: right;
+}
+
+.contenedor-form{
+    padding-left: 30px;
+    align-content: right;
+}
+
+.btn-ingresar-cabildo{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.titulo-agenda-cabildo{
+    padding-left: 50px;
+    padding-top: 50px;
+    font-size: 10px;
+    font-style: italic;
+    color: #333;
+}
+
+.contenedor-feed{
+    margin-right: 100px;
+    padding: 200px 200px 200px 200px;
+    border-radius: 20px;
+    background-color: rgb(255, 255, 255);
+    background-size: auto;
+}
+
+.titulo-feed{
+    padding-left: 50px;
+    padding-top: 50px;
+    font-size: 100px;
+    font-style: italic;
+    color: #333;
+}
+
+.contenedor-provisional{
+    padding: 20px 20px 20px 20px;
+}
+
