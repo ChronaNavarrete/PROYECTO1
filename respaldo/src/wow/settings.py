@@ -41,6 +41,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'users',
     'posts',
+    'cabildos',
+    'views_web',
+    'multiselectfield',
+
     'django.contrib.sites',
     'allauth',
     'allauth.account',

@@ -39,23 +39,68 @@
       </div>
     
     <main>
-            <section class="contenedor-titulo-cabildos">
-                <h1 class="titulo-cabildos">Cabildos</h1>
-            </section>
-    
-            <section class="contenedor-creacion-cabildo">
-                <!-- formulario creacion cabildo -->
-                <!-- vinculado base de datos, calendario de google  -->
-    
-                <!--  -->
-            </section>
-    
-            <section class="contenedor-busqueda-cabildos">
-                <!-- barra de busqueda desplegable, con los conceptos constitucionales-->
-                <!-- conectar cabildos, conceptos, base de datos, llamada desde base de datos, show -->
+        <section>
+            <div class="sidenav-cabildo">
+                <div class="cabildo-main-text">
+                    <h2>Crea y navega Cabildos</h2>
+                    <p>Hechos por la comunidad</p>
+                </div>
+            </div>
+                <div>
+                    <div class ="titulo-agenda-cabildo">
+                        <h1>Agenda un cabildo para que otra gente pueda asistir</h1>
+                    </div>
+                   <div class="cabildo-form">
+                      <form method="POST" action="">
+                        {% csrf_token %}
+
+                        <div class="cabildo-form">
+                            <label>Categoria</label>
+                            {{form.categoria}}
+                        </div>
+
+                        <div class="cabildo-form">
+                            <label>Conceptos</label>
+                            {{form.etiquetas}}
+                        </div>
+
+                        <div class="cabildo-form">
+                            <label>Nombre del cabildo</label>
+                            {{form.nombre}}
+                        </div>
+
+                        <div class="cabildo-form">
+                            <label>Fecha y Hora (aaaa-mm-dd hh:mm)</label>
+                            {{form.fecha}}
+                        </div>
+
+                        <div class="cabildo-form">
+                            <label>Link de Zoom</label>
+                            {{form.link}}
+                        </div>
+                        
+                        <div class="btn-ingresar-cabildo">
+                            <button type="submit" class="btn btn-secondary">Ingresar Cabildo</button>
+                        </div>
+                        
+                    </form>
+                    </div>
+                </div>
+             </div>
+                
             </section>
 
-        <h1>hola soy los cabildos</h1>
+            <section class="contenedor-cabildos">
+                <div class="contenedor-provisional">
+                    <h3 class="titulo-feed">hola mundo</h3>
+                </div>
+                
+
+                <div class="contenedor-feed">
+                    <p>aqui iran los posts</p>
+                </div>
+            </section>
+    
     </main>
 
 

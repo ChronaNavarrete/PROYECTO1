@@ -1,6 +1,9 @@
+from django.forms import ModelForm 
+from django import forms
 
-'''class Cabildo(pass):
+from cabildos.models import Cabildo
+
+class CrearCabildo(ModelForm):
     class Meta:
-        model = 
-        fields = []
-'''
+        model = Cabildo
+        fields = ['categoria','etiquetas','nombre','fecha','link']

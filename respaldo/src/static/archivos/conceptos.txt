@@ -1,0 +1,85 @@
+Valores	Derechos		
+Amistad cívica
+Autonomía libertad
+Bien común comunidad
+Buen vivir
+Ciudadanía
+Democracia
+Desarrollo
+Desarrollo sustentable
+Descentralización
+Dignidad
+Diversidad
+Emprendimiento libre
+Equidad de género
+Estado de derecho
+Estado garante
+Estado laico
+Estado solidario
+Familia
+Felicidad
+Fraternidad
+Identidad cultural
+Igualdad
+Igualdad de oportunidades
+Inclusión
+Innovación creatividad
+Integración
+Justicia
+Justicia social
+Medio ambiente
+Multiculturalidad
+Participación ciudadana
+Patriotismo
+Paz convivencia pacífica
+Pluralismo
+Plurinacionalismo
+Probidad
+República
+Respeto
+Respeto conservación de la naturaleza o medio ambiente
+Seguridad
+Soberanía
+Soberanía popular
+Solidaridad
+Subsidiaridad
+Tolerancia
+Transparencia
+Transparencia y publicidad
+Unidad
+
+
+from quickchart import QuickChart
+from static import archivos
+
+def crearpost(id_cabildo):
+    #if not realizado:
+    pass
+
+def creargrafico():
+    qc = QuickChart()
+    qc.width = 500
+    qc.height = 300
+    qc.device_pixel_ratio = 2.0
+    qc.config = { 
+        "type": "bar",
+        "data": {
+            "labels": ["Hello world", "Test"],
+            "datasets": [{
+                "label": "Foo",
+                "data": [1, 2]
+            }]
+        }
+    }
+    return qc.get_url()
+
+lista_categorias = ['Valores','Derechos','Deberes','Instituciones']
+
+valores = []
+a = open("conceptos.txt","r")
+for concepto in a:
+    valores.append(concepto)
+a.close()
+
+img = creargrafico()
+print(img)
