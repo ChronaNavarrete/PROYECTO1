@@ -48,6 +48,8 @@ urlpatterns = [
     path('<slug>/delete/', PostDeleteView.as_view(), name='delete'),
     path('like/<slug>/', like, name="like")
 
+    
+
 ]
 
 if settings.DEBUG:

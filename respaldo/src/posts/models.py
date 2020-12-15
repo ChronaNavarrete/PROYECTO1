@@ -10,8 +10,6 @@ class User(AbstractUser):
     def __str__(self):
         return self.username
 
-<<<<<<< HEAD
-=======
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(default= 'default.jpg', upload_to='profile_pics')
@@ -21,7 +19,6 @@ class Profile(models.Model):
 
 
 
->>>>>>> 5a95f456944e731b3b92ac992b9b6cce9be62687
 class Post(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()

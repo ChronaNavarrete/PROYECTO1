@@ -6,20 +6,18 @@ from django.contrib.auth import login as do_login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
 
-<<<<<<< HEAD
 #post
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from posts.models import Post, PostView, Like, Comment, User
 from posts.forms import PostForm, CommentForm
 
 #users
-from users.forms import CreateUserForm, LoginForm
-=======
 from users.forms import CreateUserForm, LoginForm, UserUpdateForm, ProfileUpdateForm
->>>>>>> 5a95f456944e731b3b92ac992b9b6cce9be62687
 
 #cabildos
+import json
 from cabildos.forms import CrearCabildo
+from cabildos.models import Cabildo, get_conceptos_Valores, get_conceptos_Derechos, get_conceptos_Deberes, get_conceptos_Instituciones 
 
 
 def welcome(request):
@@ -111,13 +109,32 @@ def temas(request):
     return render(request, 'temas.html')
 
 def cabildo(request):
-    form = CrearCabildo()
-    context = {'form':form}
+    context = {}
+
+    cabildo_form = CrearCabildo()
+    context['cabildo_form'] = cabildo_form
+    #context = {'form':form}
+
+    conceptos_Valores = get_conceptos_Valores()
+    conceptos_Derechos = get_conceptos_Derechos()
+    conceptos_Deberes = get_conceptos_Deberes()
+    conceptos_Instituciones = get_conceptos_Instituciones()
+
+    json_conceptos_Valores = json.dumps(conceptos_Valores)
+    json_conceptos_Derechos =json.dumps(conceptos_Derechos)
+    json_conceptos_Deberes = json.dumps(conceptos_Deberes)
+    json_conceptos_Instituciones = json.dumps(conceptos_Instituciones)
+
+    context['json_conceptos_Valores'] = json_conceptos_Valores
+    context['json_conceptos_Derechos'] = json_conceptos_Derechos
+    context['json_conceptos_Deberes'] = json_conceptos_Deberes
+    context['json_conceptos_Instituciones'] = json_conceptos_Instituciones
+
 
     if request.method == 'POST':
         form = CrearCabildo(request.POST)
         if form.is_valid():
             form.save()
 
-    return render(request, 'cabildo.html', context)    #?
+    return render(request, 'cabildo.html', context)   
 

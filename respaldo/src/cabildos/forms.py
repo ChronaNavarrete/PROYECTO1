@@ -6,4 +6,5 @@ from cabildos.models import Cabildo
 class CrearCabildo(ModelForm):
     class Meta:
         model = Cabildo
-        fields = ['categoria','etiquetas','nombre','fecha','link']
+        fields = '__all__'
+
