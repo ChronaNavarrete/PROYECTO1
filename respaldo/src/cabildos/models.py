@@ -27,11 +27,20 @@ class Cabildo(models.Model):
         ('Asamblea constituyente', 'Asamblea constituyente'), ('Banco central', 'Banco central'), ('Cambio o reforma constitucional', 'Cambio o reforma constitucional'), ('Congreso o parlamento, estructura y funciones', 'Congreso o parlamento, estructura y funciones'), ('Congreso unicameral', 'Congreso unicameral'), ('Contraloria general tribunales de cuentas', 'Contraloria general tribunales de cuentas'), ('Defensor del pueblo ciudadano', 'Defensor del pueblo ciudadano'), ('Division territorial', 'Division territorial'), ('Estado de excepcion', 'Estado de excepcion'), ('Fiscalizacion', 'Fiscalizacion'), ('Forma de estado, federalismo autonomias regionales', 'Forma de estado, federalismo autonomias regionales'), ('Fuerzas armadas', 'Fuerzas armadas'), ('Gobierno local municipal', 'Gobierno local municipal'), ('Gobierno nacional estructura y funciones', 'Gobierno nacional estructura y funciones'), ('Gobierno provincial', 'Gobierno provincial'), ('Gobierno regional', 'Gobierno regional'), ('Iniciativa popular de ley', 'Iniciativa popular de ley'), ('Jefatura de gobierno', 'Jefatura de gobierno'), ('Juicio politico, acusacion constitucional', 'Juicio politico, acusacion constitucional'), ('Justicia constitucional', 'Justicia constitucional'), ('Justicia electoral', 'Justicia electoral'), ('Ministerio de educacion', 'Ministerio de educacion'), ('Ministerio de la familia', 'Ministerio de la familia'), ('Ministerio de salud', 'Ministerio de salud'), ('Ministerio pÃºblico, defensoria publica', 'Ministerio pÃºblico, defensoria publica'), ('Partidos politicos', 'Partidos politicos'), ('Plebiscitos, referendos y consultas', 'Plebiscitos, referendos y consultas'), ('Poder judicial, estructura y funciones', 'Poder judicial, estructura y funciones'), ('Poderes del estado', 'Poderes del estado'), ('Presidencia de la repÃºblica', 'Presidencia de la repÃºblica'), ('Regimen de gobierno presidencial semi-presidencial parlamentario', 'Regimen de gobierno presidencial semi-presidencial parlamentario'), ('Tribunal constitucional', 'Tribunal constitucional'), ('Tribunal de defensa de la libre competencia', 'Tribunal de defensa de la libre competencia')
         )
 
-    categoria = models.CharField('Categorias ', max_length=200, null=True, choices=CATEGORIAS)
-    
-    etiquetas = MultiSelectField(max_length=300, choices=Deberes)
-    nombre = models.CharField('Nombre del Cabildo ', max_length=200, null=True)
-    fecha = models.DateTimeField(" Fecha y hora  (aaaa,mm,dd) (hh,mm)", auto_now_add=False)
+    categoria = models.CharField(max_length=200, null=True, choices=CATEGORIAS)
+    etiquetas = MultiSelectField(max_length=300, choices=Valores)
+
+    #if categoria == "Valores":
+    #    etiquetas = MultiSelectField(max_length=300, choices=Valores)
+    #elif  categoria == "Derechos":
+    #    etiquetas = MultiSelectField(max_length=300, choices=Derechos)
+    #elif  categoria == "Deberes":
+    #    etiquetas = MultiSelectField(max_length=300, choices=Deberes)
+    #elif  categoria == "Instituciones":
+    #    etiquetas = MultiSelectField(max_length=300, choices=Instituciones)
+
+    nombre = models.CharField(max_length=200, null=True)
+    fecha = models.DateTimeField(auto_now_add=False)
     link = models.CharField('Link ',max_length=200)
 
     def __str__(self):
