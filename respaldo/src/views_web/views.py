@@ -3,22 +3,25 @@ from django.contrib.auth import logout as do_logout
 from django.contrib.auth import authenticate
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as do_login
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth import get_user_model
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 #post
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from posts.models import Post, PostView, Like, Comment, User
+from posts.models import Post, PostView, Like, Comment, User, Profile
 from posts.forms import PostForm, CommentForm
 
 #users
-from users.forms import CreateUserForm, LoginForm, UserUpdateForm, ProfileUpdateForm
+from users.forms import CreateUserForm, LoginForm, ProfileUpdateForm, EditProfileForm
 
 #cabildos
 import json
 from cabildos.forms import CrearCabildo
 from cabildos.models import Cabildo, get_conceptos_Valores, get_conceptos_Derechos, get_conceptos_Deberes, get_conceptos_Instituciones 
 
+User = get_user_model
 
 def welcome(request):
     # Si estamos identificados devolvemos la portada
@@ -80,16 +83,17 @@ def logout(request):
     # Redireccionamos a la portada
     return redirect('/')
 
-def profile(request):
-    u_form = UserUpdateForm()
-    p_form = ProfileUpdateForm()
+def edit_profile(request):
+    if request.method == 'POST':
+        form = EditProfileForm(request.POST, instance= request.user)
 
-    context = {
-        'u_form' : u_form,
-        'p_form': p_form,
-    }
-
-    return render(request, 'perfil.html', context)
+        if form.is_valid():
+            form.save()
+            return redirect('/perfil')
+    else:
+        form = EditProfileForm(instance= request.user)
+        args = {'edit_form': form}
+        return render(request, 'editar_perfil.html', args)
 
 
 

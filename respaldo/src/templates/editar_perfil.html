@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static '/img/panda.png'%}" type="image/x-icon">
+    <title>Registro</title>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+</head>
+<body>
+    <section>
+        <div class="sidenav">
+            <div class="login-main-text">
+                <h2>Edita tu perfil</h2>
+            </div>
+         </div>
+         <div class="main">
+            <div class="col-md-6 col-sm-12">
+               <div class="login-form">
+                  <form method="POST" action="">
+                    {% csrf_token %}
+                     <div class="form-group">
+                        <label>Cambiar nombre de Usuari@</label>
+                        {{edit_form.username}}
+                     </div>
+                     <div class="form-group">
+                        <label>Cambiar email</label>
+                        {{edit_form.email}}
+                     <button type='submit' name='button'>Actualizar</button>
+                  </form>
+               </div>
+            </div>
+         </div>
+    </section>
+    
+</body>
+
+</html>
