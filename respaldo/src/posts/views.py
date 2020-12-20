@@ -1,8 +1,7 @@
 #borre todo lo que habia aqui y lo deje en web_views
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-<<<<<<< HEAD
-from posts.models import Post, PostView, Like, Comment
+from posts.models import Post, PostView, Like, Comment, Profile
 from .forms import PostForm, CommentForm
 
 from django.views.generic.edit import FormView 
@@ -16,11 +15,6 @@ from cabildos.models import Cabildo, get_conceptos_Valores, get_conceptos_Derech
 
 
 
-=======
-from .models import Post, PostView, Like, Comment, Profile
-from .forms import PostForm, CommentForm
-
->>>>>>> 14ccc0c9797497d76fe6d2fbd3ed5a0fd8730ee5
 class PostListView(ListView):
     model = Post
     form_class = CrearCabildo

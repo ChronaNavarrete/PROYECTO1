@@ -30,8 +30,8 @@ body{
     width: 100%;
     height: 600px;
     background: #007f11;  
-    background: -webkit-linear-gradient(to right, hsla(92, 42%, 65%, 0.5), hsla(207, 100%, 25%, 0)), url(../img/Shrek-5.jpg); 
-    background: linear-gradient(to right, hsla(92, 42%, 65%, 0.5), hsla(207, 100%, 25%, 0)), url(../img/Shrek-5.jpg);
+    background: -webkit-linear-gradient(to right, hsla(92, 42%, 65%, 0.5), hsla(207, 100%, 25%, 0)), url(../img/bosques-del-sur-de-chile.jpg); 
+    background: linear-gradient(to right, hsla(92, 42%, 65%, 0.5), hsla(207, 100%, 25%, 0)), url(../img/bosques-del-sur-de-chile.jpg);
     background-size: cover;
     background-attachment: fixed;
     position: relative;
@@ -309,6 +309,13 @@ body {
 }
 
 .titulo-cabildos{
+    padding-left: 50px;
+    padding-top: 50px;
+    font-size: 50px;
+    font-style: italic;
+    color: #333;
+    
+    /*
     color: blueviolet;
     font-size: 50px;
     text-align: left;
@@ -317,6 +324,7 @@ body {
     margin-right: 10px;
     height: 150px;
     background-color: #f2f2f2 ;
+    */
 }
 
 /* formulario cabildo */
@@ -366,15 +374,15 @@ body {
     padding-bottom: 30px;
     padding-left: 30px;
 }
-
-.titulo-agenda-cabildo{
+/*
+.titulo-cabildos{
     padding-left: 50px;
     padding-top: 50px;
     font-size: 10px;
     font-style: italic;
     color: #333;
 }
-
+*/
 .contenedor-feed{
     height: auto;
     width: 95%;

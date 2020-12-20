@@ -83,8 +83,8 @@
         <a href="index">Inicio</a>
         <!-- <a href="temas">Temas Constitucionales</a> -->
         <a href="calendario">Calendario</a>
-        <a href="cabildo">Cabildos</a>
-        <a href="{% url 'list' %}">Blog</a> <!-- para sacar -->
+        <a href="{% url 'list' %}">Cabildos y Blog</a>
+         <!-- <a href="cabildo">Cabildos</a> -->
         <div class="topnav-right">
             <a href="perfil">Tu perfil</a>
             <a href="/logout">Cerrar sesion</a>
@@ -100,12 +100,12 @@
                 </div>
             </div>
                 <div>
-                    <div class ="titulo-agenda-cabildo">
+                    <div class ="titulo-cabildos">
                         <h1>Agenda un cabildo para que otra gente pueda asistir</h1>
                     </div>
 
                     <div class="btn-ingresar-cabildo">
-                        <button class="btn btn-secondary" onclick="show_hide_form()">Abrir-Cerrar formulario</button>
+                        <button class="btn btn-secondary" onclick="show_hide_form()">Rellenar formulario</button>
                     </div>
                           
                     <div id="cabildo-form">
@@ -155,8 +155,9 @@
                     <h3 class="titulo-feed">hola mundo</h3>
                 </div>
                 -->
-                
+                <h1 class="titulo-cabildos">Posts de cabildos</h1>
                 <div class="contenedor-feed">
+                    
                     <div class="margen-posts">
                         {% block content %}
 
