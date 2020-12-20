@@ -1,13 +1,72 @@
 #borre todo lo que habia aqui y lo deje en web_views
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .models import Post, PostView, Like, Comment
+from posts.models import Post, PostView, Like, Comment
 from .forms import PostForm, CommentForm
+
+from django.views.generic.edit import FormView 
+from django.http import HttpResponseRedirect
+
+
+#cabildos
+import json
+from cabildos.forms import CrearCabildo
+from cabildos.models import Cabildo, get_conceptos_Valores, get_conceptos_Derechos, get_conceptos_Deberes, get_conceptos_Instituciones 
 
 
 
 class PostListView(ListView):
     model = Post
+    form_class = CrearCabildo
+    #initial = {'key': 'value'}
+    #template_name = "post_list.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(PostListView, self).get_context_data(**kwargs)
+
+        context['cabildo_form'] = CrearCabildo()
+
+        conceptos_Valores = get_conceptos_Valores()
+        conceptos_Derechos = get_conceptos_Derechos()
+        conceptos_Deberes = get_conceptos_Deberes()
+        conceptos_Instituciones = get_conceptos_Instituciones()
+
+        json_conceptos_Valores = json.dumps(conceptos_Valores)
+        json_conceptos_Derechos =json.dumps(conceptos_Derechos)
+        json_conceptos_Deberes = json.dumps(conceptos_Deberes)
+        json_conceptos_Instituciones = json.dumps(conceptos_Instituciones)
+
+        context['json_conceptos_Valores'] = json_conceptos_Valores
+        context['json_conceptos_Derechos'] = json_conceptos_Derechos
+        context['json_conceptos_Deberes'] = json_conceptos_Deberes
+        context['json_conceptos_Instituciones'] = json_conceptos_Instituciones
+
+        return context
+
+    #def get(self, request, *args, **kwargs):
+    #    form = self.form_class(initial=self.initial)
+    #    return render(request, self.template_name, {'form': form})
+
+    # Handle POST GTTP requests
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            form.save()
+            # <process form cleaned data>
+            return HttpResponseRedirect('/')
+
+        #return render(request, self.template_name, {'form': form})
+    #def post(self, request, *args, **kwargs):
+    #    form = self.get_form_class()
+    #    if form.is_valid(self):
+    #        return self.form_valid(form)
+    #    else:
+    #        return self.form_invalid(form)
+
+    #def form_valid(self, form):
+    #    if form.is_valid():
+    #        form.save()
+
 
 class PostDetailView(DetailView):
     model = Post

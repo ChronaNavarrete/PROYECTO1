@@ -1,7 +1,10 @@
-{% extends 'base.html' %}
-{% load crispy_forms_tags %}
+<!--
+    {% extends 'base.html' %}
+-->
 
-{% block content %}
+{% load crispy_forms_tags %}
+<!-- {% block content %} -->
+
     <div class='row'>
     <div class = 'col-4 offset-4'>
     <div class = 'card' style = 'padding: 10px;'>
@@ -12,6 +15,7 @@
         <div>
             <span><i class = 'fas fa-eye ml-3'></i>{{ object.get_view_count }}</span>
             <span><i class = 'fas fa-thumbs-up ml-3'></i>{{ object.get_like_count }}</span>
+            <span><i class = 'fas fa-thumbs-down ml-3'></i>{{ object.get_dislike_count }}</span>
             <span><i class = 'fas fa-comments ml-3'></i>{{ object.get_comment_count }}</span>
             <span class='float-right'>Posted {{ object.publish_date|timesince }} ago</span>
         </div>
@@ -24,12 +28,16 @@
         </hr>
 
         <div>
-            <h4>¿Te gustó el post? Deja tu like</h4>
+            <h4>¿Te gustó el post?</h4>
 
-            <a class='text-muted' href='{{ object.get_like_url }}'>
-            <i class ='fas fa-thumbs-up fa-lg'></i>
-            {{ object.get_like_count }}
-
+            <a class='text-muted ml-3' href='{{ object.get_like_url }}'>
+                <i class ='fas fa-thumbs-up fa-lg'></i>
+                {{ object.get_like_count }}
+            </a>
+            
+            <a class='text-muted ml-3' href='{{ object.get_dislike_url }}'>
+                <i class ='fas fa-thumbs-down fa-lg'></i>
+                {{ object.get_dislike_count }}
             </a>
             <hr />
             {% if request.user.is_authenticated %}
@@ -56,4 +64,4 @@
     </div>
     </div>
     </div>
-{% endblock content %}
+<!-- {% endblock content %} -->

@@ -1,11 +1,13 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser, User
+from django.contrib.auth.models import AbstractUser #, User
 from django.shortcuts import reverse
 # Create your models here.
 
-
 class User(AbstractUser):
     pass
+    #name = models.CharField(max_length=200)
+    #email = models.EmailField()
+    #password = models.CharField(max_length=200)
 
     def __str__(self):
         return self.username
@@ -27,6 +29,14 @@ class Post(models.Model):
     last_update = models.DateTimeField(auto_now = True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     slug = models.SlugField()
+    #title = models.CharField(max_length=100)
+    #content = models.TextField()  # importar el otro field
+    #imagen = models.URLField()
+    #publish_date = models.DateTimeField(auto_now_add=True)
+    #last_update = models.DateTimeField(auto_now = True)
+    #author = models.ForeignKey(User, on_delete=models.CASCADE)
+    #slug = models.SlugField()
+    
 
     def __str__(self):
         return self.title
@@ -57,6 +67,11 @@ class Post(models.Model):
     def get_like_count(self):
         return self.like_set.all().count()
     
+#funcion creacion automatica posts de cabildos
+
+def CreacionAutomaticaCabildo():
+    pass
+
 
 class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -78,6 +93,13 @@ class PostView(models.Model):
         return self.user.username
 
 class Like(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.user.username
+
+class Dislike(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
 

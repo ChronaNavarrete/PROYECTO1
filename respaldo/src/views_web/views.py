@@ -130,7 +130,6 @@ def cabildo(request):
     context['json_conceptos_Deberes'] = json_conceptos_Deberes
     context['json_conceptos_Instituciones'] = json_conceptos_Instituciones
 
-
     if request.method == 'POST':
         form = CrearCabildo(request.POST)
         if form.is_valid():

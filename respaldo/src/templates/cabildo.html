@@ -100,14 +100,48 @@
             </section>
 
             <section class="contenedor-cabildos">
-                <div class="contenedor-provisional">
+                <!--
+                    <div class="contenedor-provisional">
                     <h3 class="titulo-feed">hola mundo</h3>
                 </div>
+                -->
                 
-
                 <div class="contenedor-feed">
                     <p>aqui iran los posts</p>
                 </div>
+
+                <!--
+                    
+                    <div class='container'>
+                        <div class = 'row'>
+                        {% for object in object_list %}
+                            <div class = 'col-4'>
+                                <div class="card" style="width: 18rem;">
+                                    <img src="{{ object.thumbnail.url }}" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <a href = '{{ object.get_absolute_url }}'>
+                                            <h5 class="card-title">{{object.title}}</h5>
+                                        </a>
+                                        <p class="card-text">{{ object.content|truncatechars:40 }}</p>
+                                        <hr/>
+                                        <p>
+                                            <span><i class = 'fas fa-eye ml-3'></i>{{ object.get_view_count }}</span>
+                                            <span><i class = 'fas fa-thumbs-up ml-3'></i>{{ object.get_like_count }}</span>
+                                            <span><i class = 'fas fa-comments ml-3'></i>{{ object.get_comment_count }}</span>
+                                        </p>
+                                        <p class = 'card-text'>
+                                            Posted {{ object.publish_date|timesince }} ago
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                -->
+                
+                
             </section>
     
     </main>
