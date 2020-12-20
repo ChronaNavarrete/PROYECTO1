@@ -38,6 +38,7 @@ urlpatterns = [
     path('cabildos', views.cabildos),
     path('temas', views.temas),
     path('perfil', views.perfil),
+    path('editar_perfil', views.edit_profile),
     path('cabildo', views.cabildo),
 
     path('accounts/', include('allauth.urls')),
