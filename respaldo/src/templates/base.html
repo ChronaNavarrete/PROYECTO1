@@ -101,19 +101,19 @@
             </div>
                 <div>
                     <div class ="titulo-cabildos">
-                        <h1>Agenda un cabildo para que otra gente pueda asistir</h1>
+                        <h1>Agenda un cabildo</h1>   
                     </div>
-
+                    <p class="offset-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati non expedita officiis corporis in consequatur mollitia eveniet quisquam laboriosam labore, saepe repudiandae quas numquam? Provident laudantium doloremque facere deleniti ipsa.</p>
                     <div class="btn-ingresar-cabildo">
                         <button class="btn btn-secondary" onclick="show_hide_form()">Rellenar formulario</button>
                     </div>
 
                     <div class="offset-1 col-md-10">
-                        <form method="POST" action="">
-                            {% csrf_token %}
-                            <div id="cabildo-form">
+                        <div id="cabildo-form">
+                            <form method="POST" action="">
+                                {% csrf_token %}
                                 <div class="contenedor-chico-chiquito">
-                                    <h1>Ingresa los datos</h1>
+                                    <h2>Ingresa los datos</h2>
                                     <div>
                                         {% for field in cabildo_form %}
                                             <p> </p>
@@ -124,8 +124,9 @@
                                     </div>
                                     <button type="submit" class="btn btn-secondary">Ingresar Cabildo</button> 
                                 </div>
-                            </div>          
-                        </form> 
+                                 
+                            </form> 
+                        </div>
                     </div>
 
                     <!--

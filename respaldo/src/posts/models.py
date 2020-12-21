@@ -72,6 +72,11 @@ class Post(models.Model):
     @property
     def get_like_count(self):
         return self.like_set.all().count()
+
+    @property
+    def get_dislike_count(self):
+        return self.dislike_set.all().count()
+
     
 #funcion creacion automatica posts de cabildos
 
