@@ -3,6 +3,7 @@ from django.contrib.auth.models import AbstractUser #, User
 from django.shortcuts import reverse
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from slugify import slugify
 # Create your models here.
 
 class User(AbstractUser):
@@ -30,7 +31,7 @@ class Post(models.Model):
     publish_date = models.DateTimeField(auto_now_add=True)
     last_update = models.DateTimeField(auto_now = True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    slug = models.SlugField()
+    slug = models.SlugField(max_length=200,unique=True)
     #title = models.CharField(max_length=100)
     #content = models.TextField()  # importar el otro field
     #imagen = models.URLField()
@@ -39,6 +40,9 @@ class Post(models.Model):
     #author = models.ForeignKey(User, on_delete=models.CASCADE)
     #slug = models.SlugField()
     
+    def save(self, *args,**kwargs):
+        self.slug = slugify(self.title)
+        super(Post, self).save(*args,**kwargs)
 
     def __str__(self):
         return self.title

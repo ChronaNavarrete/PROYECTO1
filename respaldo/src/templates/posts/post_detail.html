@@ -1,11 +1,7 @@
-<!--
-    {% extends 'base.html' %}
--->
+{% extends 'base.html' %}
 
 {% load crispy_forms_tags %}
-<!-- {% block content %} -->
-
-    <div class='row'>
+{% block content %}
     <div class = 'col-4 offset-4'>
     <div class = 'card' style = 'padding: 10px;'>
         <h1>{{object.title}}</h1>
@@ -64,4 +60,4 @@
     </div>
     </div>
     </div>
-<!-- {% endblock content %} -->
+{% endblock content %}

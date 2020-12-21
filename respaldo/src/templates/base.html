@@ -107,6 +107,31 @@
                     <div class="btn-ingresar-cabildo">
                         <button class="btn btn-secondary" onclick="show_hide_form()">Rellenar formulario</button>
                     </div>
+
+                    <div class="offset-1 col-md-10">
+                        <form method="POST" action="">
+                            {% csrf_token %}
+                            <div id="cabildo-form">
+                                <div class="contenedor-chico-chiquito">
+                                    <h1>Ingresa los datos</h1>
+                                    <div>
+                                        {% for field in cabildo_form %}
+                                            <p> </p>
+                                            <label>{{ field.label_tag }}</label>
+                                            {{ field }}
+                                        {% endfor %}
+                                        <p>Por favor ingresar un link de zoom o similar</p>
+                                    </div>
+                                    <button type="submit" class="btn btn-secondary">Ingresar Cabildo</button> 
+                                </div>
+                            </div>          
+                        </form> 
+                    </div>
+
+                    <!--
+                    <div class="btn-ingresar-cabildo">
+                        <button class="btn btn-secondary" onclick="show_hide_form()">Rellenar formulario</button>
+                    </div>
                           
                     <div id="cabildo-form">
                         <form method="POST" action="">
@@ -140,10 +165,10 @@
                            <div class="btn-ingresar-cabildo">
                                <button type="submit" class="btn btn-secondary">Ingresar Cabildo</button>
                            </div>
-                           
                        </form>
-
                     </div>
+                    -->
+                    
                 </div>
              </div>
             </section>

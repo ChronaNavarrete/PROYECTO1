@@ -350,9 +350,14 @@ body {
 }
 
 #cabildo-form{
+    align-content: right;
+    align-self: right;
+}
+
+.contenedor-chico-chiquito{
     background: #f2f2f2;
-    align-content: left;
-    align-self: left;
+    padding: 20px 20px 20px 20px;
+    border-radius: 10px;
 }
 
 .cabildo-form-inside{
