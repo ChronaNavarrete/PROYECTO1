@@ -47,7 +47,7 @@
                             <h2>{{object.title}}</h2>
                             <div class="media">
                                 <div class="avatar">
-                                    <img src="" title="" alt="foto-perfil-usuario">
+                                    <img src=""{{ object.author.profile.image.url }}"" title="" alt="foto-perfil-usuario">
                                 </div>
                                 <div class="media-body">
                                     <label>{{ object.author }}</label>
@@ -120,25 +120,15 @@
                         <div class="widget-body">
                             <div class="media align-items-center">
                                 <div class="avatar">
-                                    <img src="" title="" alt="foto-perfil-usuario">
+                                    <img src="{{ object.author.profile.image.url }}" title="" alt="foto-perfil-usuario">
                                 </div>
                                 <div class="media-body">
                                     <h6>{{ object.author }}</h6>
                                 </div>
                             </div>
-                            <p>I design and develop services for customers of all sizes, specializing in creating stylish, modern websites, web services and online stores</p>
                         </div>
                     </div>
                     <!-- End Author -->
-                    <!-- Trending Post -->
-                    <div class="widget widget-post">
-                        <div class="widget-title">
-                            <h3>Trending Now</h3>
-                        </div>
-                        <div class="widget-body">
-
-                        </div>
-                    </div>
                     <!-- End Trending Post -->
                     <!-- Latest Post -->
                     <div class="widget widget-latest-post">
