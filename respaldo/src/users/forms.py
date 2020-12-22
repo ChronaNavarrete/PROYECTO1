@@ -4,13 +4,12 @@ from django import forms
 #from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
 from posts.models import Profile
-#User = get_user_model()
-from posts.models import User
+User = get_user_model()
 
 class CreateUserForm(UserCreationForm):
     class Meta:
         model = User
-        fields = '__all__'  # ['username','email','password1', 'password2']
+        fields = ['username','email','password1', 'password2']
 
 
 class LoginForm(AuthenticationForm):

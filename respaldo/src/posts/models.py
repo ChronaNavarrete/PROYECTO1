@@ -4,6 +4,7 @@ from django.shortcuts import reverse
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from slugify import slugify
+from cabildos.models import Cabildo
 # Create your models here.
 
 class User(AbstractUser):
@@ -13,7 +14,7 @@ class User(AbstractUser):
     #password = models.CharField(max_length=200)
 
     def __str__(self):
-        return self.username
+        return str(self.username)
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -77,11 +78,6 @@ class Post(models.Model):
     def get_dislike_count(self):
         return self.dislike_set.all().count()
 
-    
-#funcion creacion automatica posts de cabildos
-
-def CreacionAutomaticaCabildo():
-    pass
 
 
 class Comment(models.Model):
@@ -91,7 +87,7 @@ class Comment(models.Model):
     content = models.TextField()
 
     def __str__(self):
-        return self.user.username
+        return self.user
 
 
 class PostView(models.Model):
@@ -101,24 +97,34 @@ class PostView(models.Model):
 
 
     def __str__(self):
-        return self.user.username
+        return self.user
 
 class Like(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.user.username
+        return self.user
 
 class Dislike(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.user.username
+        return str(self.user)
 
 @receiver(post_save, sender=User)
 def create_or_update_user_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
     instance.profile.save()
+
+
+#funcion creacion automatica posts de cabildos
+
+def CrearPostCabildo(sender, instance, created, **kwargs):
+    if created:
+        Post.objects.create()
+        print("cabildo creado yei")
+
+post_save.connect(CrearPostCabildo, sender=Cabildo)
