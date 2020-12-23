@@ -119,12 +119,11 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
         Profile.objects.create(user=instance)
     instance.profile.save()
 
-
-#funcion creacion automatica posts de cabildos
-
-def CrearPostCabildo(sender, instance, created, **kwargs):
+'''
+@receiver(post_save, sender=Cabildo)
+def CrearArticulo(sender, instance, created, **kwargs):
     if created:
-        Post.objects.create()
+        Post.objects.create(user=instance)
         print("cabildo creado yei")
-
-post_save.connect(CrearPostCabildo, sender=Cabildo)
+    instance.post.save()
+'''
