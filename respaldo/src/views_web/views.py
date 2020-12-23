@@ -16,10 +16,10 @@ from posts.forms import PostForm, CommentForm
 #users
 from users.forms import CreateUserForm, LoginForm, ProfileUpdateForm, EditProfileForm
 
-#cabildos
+#articulos
 import json
-from cabildos.forms import CrearCabildo
-from cabildos.models import Cabildo, get_conceptos_Valores, get_conceptos_Derechos, get_conceptos_Deberes, get_conceptos_Instituciones 
+from articulos.forms import CrearArticulo
+from articulos.models import Articulo, get_conceptos_Valores, get_conceptos_Derechos, get_conceptos_Deberes, get_conceptos_Instituciones 
 
 User = get_user_model
 
@@ -115,8 +115,8 @@ def temas(request):
 def cabildo(request):
     context = {}
 
-    cabildo_form = CrearCabildo()
-    context['cabildo_form'] = cabildo_form
+    articulo_form = CrearArticulo()
+    context['articulo_form'] = articulo_form
     #context = {'form':form}
 
     conceptos_Valores = get_conceptos_Valores()
@@ -135,7 +135,7 @@ def cabildo(request):
     context['json_conceptos_Instituciones'] = json_conceptos_Instituciones
 
     if request.method == 'POST':
-        form = CrearCabildo(request.POST)
+        form = CrearArticulo(request.POST)
         if form.is_valid():
             form.save()
 

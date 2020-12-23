@@ -35,11 +35,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('calendario', views.calendario),
     path('index', views.index),
-    path('cabildos', views.cabildos),
+    #path('cabildos', views.cabildos),
     path('temas', views.temas),
     path('perfil', views.perfil),
     path('editar_perfil', views.edit_profile),
-    path('cabildo', views.cabildo),
+    path('articulo', views.Articulo),
 
     path('accounts/', include('allauth.urls')),
     path('blog', PostListView.as_view(), name='list'),

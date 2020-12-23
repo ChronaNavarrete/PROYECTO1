@@ -827,4 +827,9 @@ body {
      -webkit-transform: rotate(45deg);
      transform: rotate(45deg);
  }
+
+.link-formulario-articulo{
+  text-decoration: none;
+  color: #ddd;
+}
  
