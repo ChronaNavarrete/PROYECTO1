@@ -43,11 +43,11 @@
                             <img src="{{ object.thumbnail.url }}" title="" alt="img-elegida-usuario">
                         </div>
                         <div class="article-title">
-                            <h6><a href="#">Lifestyle</a></h6>
+                            <h6><a href="#">Aqui hay un link sacable ke wea</a></h6>
                             <h2>{{object.title}}</h2>
                             <div class="media">
                                 <div class="avatar">
-                                    <img src=""{{ object.author.profile.image.url }}"" title="" alt="foto-perfil-usuario">
+                                    <img src="{{ object.author.profile.image.url }}" title="" alt="foto-perfil-usuario">
                                 </div>
                                 <div class="media-body">
                                     <label>{{ object.author }}</label>
@@ -129,94 +129,40 @@
                         </div>
                     </div>
                     <!-- End Author -->
-                    <!-- End Trending Post -->
-                    <!-- Latest Post -->
+                    
+                    <!-- Columnas que podrian interesarte -->
                     <div class="widget widget-latest-post">
                         <div class="widget-title">
-                            <h3>Ultimos Post</h3>
+                            <h3>Columnas que podrian interesarte</h3>
                         </div>
                         <div class="widget-body">
+
+                            {% for post in all_posts %}
                             <div class="latest-post-aside media">
                                 <div class="lpa-left media-body">
                                     <div class="lpa-title">
-                                        <h5><a href="#">Prevent 75% of visitors from google analytics</a></h5>
+                                        <h5><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h5>
                                     </div>
                                     <div class="lpa-meta">
                                         <a class="name" href="#">
-                                            Rachel Roth
+                                            Por {{ post.author }}
                                         </a>
                                         <a class="date" href="#">
-                                            26 FEB 2020
+                                            {{ post.date }}
                                         </a>
                                     </div>
                                 </div>
-                                <div class="lpa-right">
+                                <!--
+                                    <div class="lpa-right">
                                     <a href="#">
-                                        <img src="https://via.placeholder.com/400x200/FFB6C1/000000" title="" alt="">
+                                        <img src="{{ post.thumbnail.url }}" title="" alt="">
                                     </a>
                                 </div>
+                                -->
                             </div>
-                            <div class="latest-post-aside media">
-                                <div class="lpa-left media-body">
-                                    <div class="lpa-title">
-                                        <h5><a href="#">Prevent 75% of visitors from google analytics</a></h5>
-                                    </div>
-                                    <div class="lpa-meta">
-                                        <a class="name" href="#">
-                                            Rachel Roth
-                                        </a>
-                                        <a class="date" href="#">
-                                            26 FEB 2020
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="lpa-right">
-                                    <a href="#">
-                                        <img src="https://via.placeholder.com/400x200/FFB6C1/000000" title="" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="latest-post-aside media">
-                                <div class="lpa-left media-body">
-                                    <div class="lpa-title">
-                                        <h5><a href="#">Prevent 75% of visitors from google analytics</a></h5>
-                                    </div>
-                                    <div class="lpa-meta">
-                                        <a class="name" href="#">
-                                            Rachel Roth
-                                        </a>
-                                        <a class="date" href="#">
-                                            26 FEB 2020
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="lpa-right">
-                                    <a href="#">
-                                        <img src="https://via.placeholder.com/400x200/FFB6C1/000000" title="" alt="">
-                                    </a>
-                                </div>
-                            </div>
+                            {% endfor %}
                         </div>
                     </div>
-                    <!-- End Latest Post -->
-                    <!-- widget Tags -->
-                    <div class="widget widget-tags">
-                        <div class="widget-title">
-                            <h3>Latest Tags</h3>
-                        </div>
-                        <div class="widget-body">
-                            <div class="nav tag-cloud">
-                                <a href="#">Design</a>
-                                <a href="#">Development</a>
-                                <a href="#">Travel</a>
-                                <a href="#">Web Design</a>
-                                <a href="#">Marketing</a>
-                                <a href="#">Research</a>
-                                <a href="#">Managment</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End widget Tags -->
                 </div>
             </div>
         </div>

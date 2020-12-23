@@ -1,6 +1,6 @@
 {% load static %}
 
-    <!doctype html>
+<!doctype html>
 <html lang="es">
     <head>
         <meta charset="utf-8">
@@ -11,9 +11,11 @@
         <link rel="shortcut icon" href="{% static '/img/panda.png'%}" type="image/x-icon">
         <title>Calendario</title>
         <link rel="stylesheet" href="{% static '/css/estilos.css' %}">
+        <link rel="stylesheet" href="{% static '/archivos/lib/main.css' %}">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
         <script src='https://kit.fontawesome.com/7609863645.js' crossorigin='anonymous'></script>
-
+        <script src="{% static '/archivos/lib/main.js' %}"></script>
+        <script> from cabildos.models import Cabildo </script>
         
         <link rel="apple-touch-icon" href="/docs/4.5/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
         <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
@@ -45,20 +47,63 @@
         
         <section>
             <div class="presentacion-calendario">
-                <p>Descubre las fechas en que se realizaran cabildos que te interesan</p>
-                <p>Podras anotarte para los que te interesen para recibir el link de la reunion por correo</p>
-            </div>
-        </section>
+                <H1>¡Crea y descubre las fechas en que se realizaran los cabildos que te interesan!</H1>
 
-        <section class="calendario-google">
-            <div class="calendario">
-                <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=2&amp;bgcolor=%23B39DDB&amp;ctz=America%2FSantiago&amp;src=Y19vaTUzZXFqNGt2N3Z0ZTViZjMxazZzMzRsc0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%23C0CA33&amp;showTabs=1&amp;title=Calendario%20Cabildos&amp;showNav=1&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0" style="border:solid 1px #777" width="100%" height="800" frameborder="0" scrolling="no"></iframe>
+                <form method="POST">
+
+                {% csrf_token %}
+                {{form.nombre}}
+                <button type="submit">Crear Cabildo</button>
+                
+
+                </form>
             </div>
-            
+
+            <div id = "calendar" size = 100> </div>
         </section>
 
     </main>
-    
-    
+
 </body>
+
+
+{% block extrajs %}
+
+<script>
+    
+
+    document.addEventListener("DOMContentLoaded", function(){
+        var calendarUI = document.getElementById("calendar");
+        var calendar = new FullCalendar.Calendar(calendarUI, {
+  events: [
+    {
+
+      title: 'Cabildo sobre la paz',
+      start: '2020-12-12'
+
+
+
+    },
+     {
+
+      title: 'Seguridad ciudadana',
+      start: '2020-12-15'
+
+    },
+    {
+
+      title: 'AFP',
+      start: '2020-12-17'
+
+    }
+    ]
+
+
+
+        });
+        calendar.render(); 
+    })
+</script>   
+{% endblock extrajs %}
+
 </html>
