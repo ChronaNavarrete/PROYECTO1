@@ -1,8 +1,178 @@
-{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+        <meta name="generator" content="Jekyll v4.1.1">
+        <link rel="shortcut icon" href="{% static '/img/panda.png'%}" type="image/x-icon">
+        <title>Crea tu articulo</title>
+        <link rel="stylesheet" href="{% static '/css/estilos.css' %}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <script src='https://kit.fontawesome.com/7609863645.js' crossorigin='anonymous'></script>
+
+        <!-- Favicons -->
+        <link rel="apple-touch-icon" href="/docs/4.5/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+        <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+        <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+        <link rel="manifest" href="/docs/4.5/assets/img/favicons/manifest.json">
+        <link rel="mask-icon" href="/docs/4.5/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
+        <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon.ico">
+        <meta name="msapplication-config" content="/docs/4.5/assets/img/favicons/browserconfig.xml">
+        <meta name="theme-color" content="#563d7c">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <form method="POST" action="">
+    {% csrf_token %}
+    <div class="blog-single gray-bg">
+        
+        <div class="detail-volver">
+            <a href="{% url 'list' %}" class="btn btn-secondary offset-10" >
+                Volver al sitio
+            </a>
+        </div>
+
+        
+        
+        <div class="container">
+            <div class="row align-items-start">
+                <div class="col-lg-8 m-15px-tb">
+                    
+                    <article class="article">
+                        <div class="article-img">
+                            <img src="{% static '/img/img-ejemplo.png' %}" title="" alt="img-elegida-usuario">
+                        </div>
+                        <div class="article-title">
+                            <h2>Titulo del Articulo</h2>
+                            <div class="media">
+                                <div class="avatar">
+                                    <img src="{% static '/img/img-perfil-ejemplo.jpg' %}" title="" alt="foto-perfil-usuario">
+                                </div>
+                                <div class="media-body">
+                                    <label>Nombre del Autor</label>
+                                    <span>Fecha de publicacion</span>
+                                </div>
+                                <div>
+                                    <span><i class = 'fas fa-eye ml-3'></i>{{ object.get_view_count }}</span>
+                                    <span><i class = 'fas fa-thumbs-up ml-3'></i>{{ object.get_like_count }}</span>
+                                    <span><i class = 'fas fa-thumbs-down ml-3'></i>{{ object.get_dislike_count }}</span>
+                                    <span><i class = 'fas fa-comments ml-3'></i>{{ object.get_comment_count }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="article-content">
+                            <h4 style="padding: 200px 200px 200px 200px ; ">Contenido del Articulo</h4>
+                            
+        
+                            <!--
+                                <p>Aenean eleifend ante maecenas pulvinar montes lorem et pede dis dolor pretium donec dictum. Vici consequat justo enim. Venenatis eget adipiscing luctus lorem. Adipiscing veni amet luctus enim sem libero tellus viverra venenatis aliquam. Commodo natoque quam pulvinar elit.</p>
+                            <p>Eget aenean tellus venenatis. Donec odio tempus. Felis arcu pretium metus nullam quam aenean sociis quis sem neque vici libero. Venenatis nullam fringilla pretium magnis aliquam nunc vulputate integer augue ultricies cras. Eget viverra feugiat cras ut. Sit natoque montes tempus ligula eget vitae pede rhoncus maecenas consectetuer commodo condimentum aenean.</p>
+                            <h4>What are my payment options?</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            <blockquote>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                                <p class="blockquote-footer">Someone famous in <cite title="Source Title">Dick Grayson</cite></p>
+                            </blockquote>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            -->
+                        </div>
+                    </article>
+
+                    
+                </div>
+                <div class="col-lg-4 m-15px-tb blog-aside">
+                    <!-- Author -->
+                    <div class="widget widget-author">
+                        <div class="widget-title">
+                            <h3>Esta es la vista previa</h3>
+                        </div>
+                        <div class="widget-body">
+                            <p>A tu izquierda puedes ver el formato que usamos para las columnas de opinion</p>
+                        </div>
+
+                        <div class="widget-body">
+                            <p>uwu</p>
+                        </div>
+
+                        <div class="widget-body">
+                            <p>Abajo se encuentra el formulario para crear la publicacion</p>
+                        </div>
+                        
+
+                    </div>
+                    <!-- End Author -->
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blog-single gray-bg">
+        <div class="container">
+            
+                <div class="contact-form article">
+                    <h3>Formulario</h3>
+                    <p>Por favor complete los siguientes campos</p>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <h6>Titulo del Articulo</h6>
+                                {{ post_form.title }}
+                            </div>
+
+                            <div class="form-group">
+                                <h6>Categoria</h6>
+                                {{ post_form.categoria }}
+                            </div>
+
+                            <div class="form-group">
+                                <h6>Concepto</h6>
+                                {{ post_form.concepto }}
+                            </div>
+
+                            <div class="form-group">
+                                <h6>Autor (por favor elija su perfil)</h6>
+                                {{ post_form.author }}
+                            </div>
+
+                            <div class="form-group">
+                                <h6>Imagen de fondo</h6>
+                                {{ post_form.thumbnail }}
+                            </div>     
+                            
+                            <div class="form-group">
+                                <h6>Contenido del Articulo</h6>
+                                {{ post_form.media }}
+                                {{ post_form.content }}
+                            </div>   
+                            
+                        </div>   
+
+                        <div class="send">
+                            <button class="btn btn-secondary"><span>Crear</span> <i class="arrow"></i></button>
+                        </div>            
+                </div>
+            
+            
+        </div>
+        
+    
+    </div>
+</form>
+    
+</body>
 
 
 
-{% block content %}
+<!--
     <div class='container'>
         <h1>Esta es la vista de {{ view_type }}</h1>
          <form method='POST' enctype= 'multipart/form-data'>
@@ -11,4 +181,5 @@
             <button class = 'btn btn-primary' type= 'submit'>{{ view_type | title }}</button>
         </form>
     </div>
-{% endblock content %}
+
+-->
