@@ -40,6 +40,8 @@ urlpatterns = [
     path('perfil', views.perfil),
     path('editar_perfil', views.edit_profile),
     path('cabildo', views.cabildo),
+    path('cabildos_online', views.Cabildo_OnlineView),
+
 
     path('accounts/', include('allauth.urls')),
     path('blog', PostListView.as_view(), name='list'),
