@@ -125,10 +125,6 @@ class PostCreateView(CreateView):
 
         return context
 
-    #def get(self, request, *args, **kwargs):
-    #    form = self.form_class(initial=self.initial)
-    #    return render(request, self.template_name, {'form': form})
-
     # Handle POST GTTP requests
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
@@ -136,12 +132,6 @@ class PostCreateView(CreateView):
             form.save()
             # <process form cleaned data>
             return HttpResponseRedirect('/')
-    #def get_context_data(self, **kwargs):
-    #    context = super().get_context_data(**kwargs)
-    #    context.update({
-    #        'view_type': 'create'
-    #    })
-    #    return context
 
 class PostDeleteView(DeleteView):
     model = Post

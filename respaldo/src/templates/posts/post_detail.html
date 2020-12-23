@@ -81,34 +81,8 @@
                             <a href="#">{{ object.concepto }}</a>
                         </div>
                     </article>
-                    <div class="contact-form article-comment">
-
-                        <form id="contact-form" method="POST">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input name="Name" id="name" placeholder="Name *" class="form-control" type="text">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input name="Email" id="email" placeholder="Email *" class="form-control" type="email">
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <textarea name="message" id="message" placeholder="Your message *" rows="4" class="form-control"></textarea>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="send">
-                                        <button class="px-btn theme"><span>Submit</span> <i class="arrow"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
                 </div>
+
                 <div class="col-lg-4 m-15px-tb blog-aside">
                     <!-- Author -->
                     <div class="widget widget-author">
@@ -168,8 +142,8 @@
 
     <div class="blog-single gray-bg">
         <div class="container">
-            <div class="contact-form article-comment">
-                <h2>Opina, conversa, involucrate ctm</h4>
+            <div class="contact-form article">
+                <h2>Cuentamos que opinas</h4>
 
                         <h5>¿Te gustó el post?</h5>
                         <a class='text-muted ml-3' href='{{ object.get_like_url }}'>
@@ -179,14 +153,65 @@
                         <a class='text-muted ml-3' href='{{ object.get_dislike_url }}'>
                             <i class ='fas fa-thumbs-down fa-lg'></i>
                             {{ object.get_dislike_count }}
-                        </a>
-            </div>
+                        </a>  
+            </div>    
             
+            <div class="contact-form article-comment">
+                <div class="offset-1">
+                    <h2>Lo que otra gente opina</h2>
+                </div>
+                {% if request.user.is_authenticated %}
+                {% for comment in object.comments %}
+                    <div>
+                        <p>{{ comment.content }}
+                        <br />
+                        <small>{{ comment.timestamp|timesince }} ago</small>
+                        </p>
+                    </div>
+                    <hr />
+                {% endfor %}
+                
+                <h4>Deja un comentario<h4>
+                <form method='POST'>
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button class='btn btn-secondary' type= 'submit'>Comentar</button>
+                </form>
+                <hr />
+                <h5>Comentarios</h5>
+                
+                {% endif %}
+                <h3>¿Que piensas sobre el tema?</h3>
+            </div>
         </div>
-        
-
     </div>
 
+    <div class="contact-form article-comment">
+        <form id="contact-form" method="POST">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input name="Name" id="name" placeholder="Name *" class="form-control" type="text">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input name="Email" id="email" placeholder="Email *" class="form-control" type="email">
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <textarea name="message" id="message" placeholder="Your message *" rows="4" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="send">
+                        <button class="px-btn theme"><span>Submit</span> <i class="arrow"></i></button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
     <!--
         <section class="contenedor-detail">
 
