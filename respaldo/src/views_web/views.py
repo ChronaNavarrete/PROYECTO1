@@ -14,7 +14,7 @@ from posts.models import Post, PostView, Like, Comment, User, Profile
 from posts.forms import PostForm, CommentForm
 
 #users
-from users.forms import CreateUserForm, LoginForm, ProfileUpdateForm, EditProfileForm
+from users.forms import CreateUserForm, LoginForm, EditProfileForm
 
 #cabildos
 import json
