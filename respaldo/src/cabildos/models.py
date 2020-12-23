@@ -247,9 +247,9 @@ def get_conceptos_Instituciones():
 
 class Cabildo(models.Model):
     categoria = models.CharField(max_length=200, null=True, choices=CATEGORIAS)
-    concepto = models.CharField(max_length=200, choices=TODOS_LOS_CONCEPTOS)
-    nombre = models.CharField(max_length=200, null=True)
-    fecha = models.DateTimeField(auto_now_add=False)
+    concepto = models.CharField('Concepto a tratar', max_length=200, choices=TODOS_LOS_CONCEPTOS)
+    nombre = models.CharField('Nombre de tu cabildo', max_length=200, null=True)
+    fecha = models.DateTimeField('Fecha (aaaa-mm-dd) pls', auto_now_add=False)
     link = models.CharField(max_length=200)
 
     def __str__(self):

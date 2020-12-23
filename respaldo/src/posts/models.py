@@ -1,16 +1,20 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser, User
+from django.contrib.auth.models import AbstractUser , User
 from django.shortcuts import reverse
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from slugify import slugify
+from cabildos.models import Cabildo
 # Create your models here.
-
 
 class User(AbstractUser):
     pass
+    #name = models.CharField(max_length=200)
+    #email = models.EmailField()
+    #password = models.CharField(max_length=200)
 
     def __str__(self):
-        return self.username
+        return str(self.username)
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -28,7 +32,18 @@ class Post(models.Model):
     publish_date = models.DateTimeField(auto_now_add=True)
     last_update = models.DateTimeField(auto_now = True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    slug = models.SlugField()
+    slug = models.SlugField(max_length=200,unique=True)
+    #title = models.CharField(max_length=100)
+    #content = models.TextField()  # importar el otro field
+    #imagen = models.URLField()
+    #publish_date = models.DateTimeField(auto_now_add=True)
+    #last_update = models.DateTimeField(auto_now = True)
+    #author = models.ForeignKey(User, on_delete=models.CASCADE)
+    #slug = models.SlugField()
+    
+    def save(self, *args,**kwargs):
+        self.slug = slugify(self.title)
+        super(Post, self).save(*args,**kwargs)
 
     def __str__(self):
         return self.title
@@ -58,7 +73,12 @@ class Post(models.Model):
     @property
     def get_like_count(self):
         return self.like_set.all().count()
-    
+
+    @property
+    def get_dislike_count(self):
+        return self.dislike_set.all().count()
+
+
 
 class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -67,7 +87,7 @@ class Comment(models.Model):
     content = models.TextField()
 
     def __str__(self):
-        return self.user.username
+        return self.user
 
 
 class PostView(models.Model):
@@ -77,18 +97,33 @@ class PostView(models.Model):
 
 
     def __str__(self):
-        return self.user.username
+        return self.user
 
 class Like(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.user.username
+        return self.user
 
+class Dislike(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.user)
 
 @receiver(post_save, sender=User)
 def create_or_update_user_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
     instance.profile.save()
+
+'''
+@receiver(post_save, sender=Cabildo)
+def CrearArticulo(sender, instance, created, **kwargs):
+    if created:
+        Post.objects.create(user=instance)
+        print("cabildo creado yei")
+    instance.post.save()
+'''

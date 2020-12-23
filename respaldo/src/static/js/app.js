@@ -12,7 +12,7 @@ btn.addEventListener('click',()=>{
 })
 */
 
-var a = 1;
+var a;
 function show_hide_form(){
   if(a==1){
     document.getElementById("cabildo-form").style.display="none";
