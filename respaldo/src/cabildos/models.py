@@ -245,7 +245,6 @@ def get_conceptos_Instituciones():
 
 
 
-
 class Cabildo(models.Model):
     categoria = models.CharField(max_length=200, null=True, choices=CATEGORIAS)
     concepto = models.CharField(max_length=200, choices=TODOS_LOS_CONCEPTOS)
@@ -258,17 +257,10 @@ class Cabildo(models.Model):
 
 
 
-'''sql 
-    id
-    etiquetas = conceptos = temas constitucionales # filtar el archivo bachele 2016
-    nombre
-    fecha
-    hora
-    #link
-    realizado True False
-    conclusion = str
-    aprobacion = %
+class Cabildo_Online(models.Model):
+    nombre = models.CharField(max_length=200)
+    fecha = models.DateTimeField(auto_now_add=False)
+    hora = models.CharField(max_length=5)
+    link = models.CharField(max_length=200)
 
 
-lista_categorias = ['Valores','Derechos','Deberes','Instituciones']
-'''

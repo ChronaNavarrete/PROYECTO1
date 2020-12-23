@@ -19,7 +19,9 @@ from users.forms import CreateUserForm, LoginForm, ProfileUpdateForm, EditProfil
 #cabildos
 import json
 from cabildos.forms import CrearCabildo
-from cabildos.models import Cabildo, get_conceptos_Valores, get_conceptos_Derechos, get_conceptos_Deberes, get_conceptos_Instituciones 
+from cabildos.forms import Cabildo_OnlineForm
+from cabildos.models import Cabildo_Online, Cabildo, get_conceptos_Valores, get_conceptos_Derechos, get_conceptos_Deberes, get_conceptos_Instituciones 
+
 
 User = get_user_model
 
@@ -111,6 +113,16 @@ def perfil(request):
 
 def temas(request):
     return render(request, 'temas.html')
+
+def Cabildo_OnlineView(request):
+    if request.method == "POST" : 
+        form = Cabildo_OnlineForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect("/calendario")
+    else:
+        form = Cabildo_OnlineForm()
+    return render(request, "calendario.html", {"form" : form})
 
 def cabildo(request):
     context = {}
