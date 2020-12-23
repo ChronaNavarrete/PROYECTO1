@@ -104,10 +104,9 @@ class PostCreateView(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context.update({
-            'view_type': 'create',
-            'post_form': PostForm(),
-        })
+        
+        context['view_type'] = 'create'
+        context['post_form'] = PostForm()
 
         conceptos_Valores = get_conceptos_Valores()
         conceptos_Derechos = get_conceptos_Derechos()
@@ -128,11 +127,14 @@ class PostCreateView(CreateView):
 
     # Handle POST GTTP requests
     def post(self, request, *args, **kwargs):
-        form = self.form_class(request.POST)
-        if form.is_valid():
-            form.save()
-            # <process form cleaned data>
-        return HttpResponseRedirect('/')
+        form = self.form_class(request.POST, request.FILES)
+        if request.method == "POST":
+            if form.is_valid():
+                form.save()
+                # <process form cleaned data>
+            
+            #print(form)
+            return HttpResponseRedirect('/blog')
 
 class PostDeleteView(DeleteView):
     model = Post
