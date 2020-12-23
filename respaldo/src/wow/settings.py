@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'cabildos',
     'views_web',
     'multiselectfield',
+    'ckeditor',
 
     'django.contrib.sites',
     'allauth',
