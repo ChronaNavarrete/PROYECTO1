@@ -263,4 +263,5 @@ class Cabildo_Online(models.Model):
     hora = models.CharField(max_length=5)
     link = models.CharField(max_length=200)
 
-
+    def __str__(self):
+        return self.nombre

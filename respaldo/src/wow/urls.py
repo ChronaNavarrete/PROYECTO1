@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.conf import settings
+from django.conf.urls import url
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
@@ -26,6 +27,7 @@ from posts.views import (
     PostUpdateView,
     like
 )
+from views_web.views import Cabildo_OnlineView, Cabildo_Onlain
 
 urlpatterns = [
     path('', views.welcome),
@@ -33,15 +35,16 @@ urlpatterns = [
     path('login', views.login),
     path('logout', views.logout),
     path('admin/', admin.site.urls),
-    path('calendario', views.calendario),
+    path('calendario', Cabildo_Onlain.as_view()),
     path('index', views.index),
     path('cabildos', views.cabildos),
     path('temas', views.temas),
     path('perfil', views.perfil),
     path('editar_perfil', views.edit_profile),
     path('cabildo', views.cabildo),
+    path('crea_calendar', views.crear_calendar),
     path('cabildos_online', views.Cabildo_OnlineView),
-
+    #path('calendario', Cabildo_Onlain.as_view()),
 
     path('accounts/', include('allauth.urls')),
     path('blog', PostListView.as_view(), name='list'),
@@ -50,6 +53,7 @@ urlpatterns = [
     path('<slug>/update/', PostUpdateView.as_view(), name='update'),
     path('<slug>/delete/', PostDeleteView.as_view(), name='delete'),
     path('like/<slug>/', like, name="like")
+    #path('calendario_form', Cabildo_OnlineView.as_view())
 
     
 
