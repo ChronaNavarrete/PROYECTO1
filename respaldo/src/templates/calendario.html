@@ -53,6 +53,7 @@
                         <h2> <input type="button" value="¡Agenda tu cabildo!" /> </h2>
                     </a>
 
+<<<<<<< HEAD
     
             </div>
 
@@ -112,17 +113,72 @@
                 alert('Clicked ' + eventObj.tittle);
             }
 
+=======
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form }}
+                    <H2><a href='cabildos_online'>Crear Cabildo</a></H2>
+                </form>
+
+                
+            </div>
+
+
+
+
+
+
+
+            
+             
+            
+        </section>
+
+    </main>
+
+        <div id = "calendar" size = 100> 
+        </div>
+
+</body>
+
+
+
+    
+{% block extrajs %}
+<script src="{% static '/archivos/lib/main.js' %}"></script>
+<script src="{% static '/archivos/lib/main.css' %}"></script>
+<link href='css/fullcalendar.min.css' rel='stylesheet' />
+
+<script>
+    document.addEventListener('DOMContentLoaded', function(){
+        var calendarUI = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarUI,{
+            headerToolbar: {
+                left: 'prev,next',
+                center: 'title',
+>>>>>>> c3ba7d69534edaad2286db6f6627cdd74fc41cf4
             },
             events: [
                 {% for cabildo in object_list %}
                     {
                         title: "{{ cabildo.hora }} {{ cabildo.nombre }}",
                         start: '{{ cabildo.fecha | date:"Y-m-d" }}',
+<<<<<<< HEAD
                         url: "{{ cabildo.link }}"
      
                     },
                 {% endfor %}
             ],
+=======
+                        
+                        
+                        
+                        
+                        
+                    },
+                {% endfor %}
+            ],  
+>>>>>>> c3ba7d69534edaad2286db6f6627cdd74fc41cf4
             
 
         });
@@ -133,5 +189,8 @@
 {% endblock extrajs %}
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> c3ba7d69534edaad2286db6f6627cdd74fc41cf4
 </html>
