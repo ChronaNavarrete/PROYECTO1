@@ -1,14 +1,9 @@
 #borre todo lo que habia aqui y lo deje en web_views
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-<<<<<<< HEAD
-from posts.models import Post, PostView, Like, Comment, Profile
-from .forms import PostForm, CommentForm, ProfileUpdateForm
-=======
 from posts.models import Post, PostView, Like, Comment, Profile, Dislike
 from .forms import PostForm, CommentForm
 
->>>>>>> 48015f148258c1e74ca8504ec95a6ead0ae44b44
 from django.views.generic.edit import FormView 
 from django.http import HttpResponseRedirect
 
@@ -330,29 +325,6 @@ def like(request, slug):
     Like.objects.create(user=request.user, post=post)
     return redirect('detail', slug=slug)
 
-<<<<<<< HEAD
-def profile(request):
-    if request.method == 'POST':
-        form = ProfileUpdateForm(request.POST,
-                                   request.FILES,
-                                   instance=request.user.profile.image)
-        if form.is_valid():
-            form.save()
-            messages.success(request, f'Your account has been updated!')
-            return redirect('perfil')
-
-        else:
-            print(form.errors)
-
-    else:
-        form = ProfileUpdateForm(instance=request.user.profile.image)
-
-    context = {
-        'form': form
-    }
-
-    return render(request, 'perfil.html', context)
-=======
 def dislike(request, slug):
     post = get_object_or_404(Post, slug=slug)
     dislike_qs = Dislike.objects.filter(user=request.user, post=post)
@@ -362,4 +334,3 @@ def dislike(request, slug):
     Dislike.objects.create(user=request.user, post=post)
     return redirect('detail', slug=slug)
 '''
->>>>>>> 48015f148258c1e74ca8504ec95a6ead0ae44b44

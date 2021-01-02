@@ -20,15 +20,4 @@ class PostForm(forms.ModelForm):
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-<<<<<<< HEAD
-        fields =('content', )
-
-class ProfileUpdateForm(forms.ModelForm):
-    class Meta:
-        model = Profile
-        fields = ['image']
-
-
-=======
         fields =('content',)
->>>>>>> 48015f148258c1e74ca8504ec95a6ead0ae44b44

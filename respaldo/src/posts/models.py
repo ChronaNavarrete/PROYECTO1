@@ -24,25 +24,12 @@ class Profile(models.Model):
     def __str__(self):
         return f'{self.user.username} Profile'
 
-<<<<<<< HEAD
-    def save(self):
-        super().save()
-
-        img = Image.open(self.image.path)
-
-        if img.height > 300 or img.width > 300:
-            output_size = (300, 300)
-            img.thumbnail(output_size)
-            img.save(self.image.path)
-
-=======
 CATEGORIAS = (
         ('Valores', 'Valores'),
         ('Derechos', 'Derechos'),
         ('Deberes', 'Deberes'),
         ('Instituciones', 'Instituciones'),
     )
->>>>>>> 48015f148258c1e74ca8504ec95a6ead0ae44b44
 
 V_0 = "Valores Derechos"
 V_1 = "Amistad civica"
