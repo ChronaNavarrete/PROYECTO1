@@ -8,15 +8,18 @@
         
         {% for object in object_list %}
         
-            <div class = 'col-4'>
+            <div class = 'col-4' style="padding-bottom: 20px;">
                 <div class="card" style="width: 18rem;">
                     <img src="{{ object.thumbnail.url }}" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <a href = '{{ object.get_absolute_url }}'>
-                            <h5 class="card-title">{{object.title}}</h5>
+                        <a href = '{{ object.get_absolute_url }}' style="text-decoration-color: rgb(53, 53, 53);">
+                            <h5 class="card-title" style="color: rgb(53, 53, 53);">{{object.title}}</h5>
                         </a>
-                        <p class="card-text">{{ object.content|truncatechars:40 }}</p>
                         <hr/>
+                        <!--
+                            <p class="card-text">{{ object.content | safe | truncatechars:30 }}</p>
+                        <hr/>
+                        -->
                         <p>
                             <span><i class = 'fas fa-eye ml-3'></i>{{ object.get_view_count }}</span>
                             <span><i class = 'fas fa-thumbs-up ml-3'></i>{{ object.get_like_count }}</span>
@@ -26,9 +29,9 @@
                         <p class = 'card-text'>
                             Posted {{ object.publish_date|timesince }} ago
                         </p>
+                        
                     </div>
                 </div>
-            </a>
             </div>
         {% endfor %}
         </div>

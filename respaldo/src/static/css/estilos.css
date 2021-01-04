@@ -311,9 +311,11 @@ body {
 .titulo-cabildos{
     padding-left: 50px;
     padding-top: 50px;
+    padding-right: 50px;
     font-size: 50px;
     font-style: italic;
     color: #333;
+
     
     /*
     color: blueviolet;
@@ -376,7 +378,7 @@ body {
 .btn-ingresar-cabildo{
     padding-top: 30px;
     padding-bottom: 30px;
-    padding-left: 30px;
+    padding-left: 320px;
 }
 /*
 .titulo-cabildos{
