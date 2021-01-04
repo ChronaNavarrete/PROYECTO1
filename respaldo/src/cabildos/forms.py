@@ -17,25 +17,14 @@ class CrearCabildo(forms.ModelForm):
         }
 
 
-class Cabildo_OnlineForm(forms.ModelForm):
+class Cabildo_OnlineForm(ModelForm):
     class Meta:
         model = Cabildo_Online
-        fields = [
-            'nombre',
-            'fecha',
-            'hora',
-            'link',
-        ]
+        fields = '__all__'
+        widgets = {
+            'nombre': forms.TextInput(attrs={'class':'form-control'}),
+            'fecha': forms.DateInput(attrs={'class':'form-control'}),
+            'hora': forms.TextInput(attrs={'class':'form-control'}),
+            'link': forms.TextInput(attrs={'class':'form-control'}),
+        }
 
-       # labels = {
-        #    'nombre' : 'Nombre',
-         #   'fecha' : 'Fecha',
-          #  'hora' : 'Hora',
-           # 'link' : 'Link',
-        #}
-
-        #widgets = {
-         #   'nombre' : forms.TextInput(attrs={'class':'form-control'}),
-          # 'hora' : forms.TextInput(attrs={'class':'form-control'}),
-            #'link' : forms.TextInput(attrs={'class':'form-control'}),
-        #}

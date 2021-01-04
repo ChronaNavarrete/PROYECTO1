@@ -7,9 +7,10 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth import get_user_model
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.http import HttpResponse,JsonResponse
 
 #post
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, View
 from posts.models import Post, PostView, Like, Comment, User, Profile
 from posts.forms import PostForm, CommentForm
 
@@ -19,7 +20,7 @@ from users.forms import CreateUserForm, LoginForm, EditProfileForm
 #cabildos
 import json
 from cabildos.forms import CrearCabildo
-from cabildos.forms import Cabildo_OnlineForm
+from cabildos.forms import Cabildo_OnlineForm 
 from cabildos.models import Cabildo_Online, Cabildo, get_conceptos_Valores, get_conceptos_Derechos, get_conceptos_Deberes, get_conceptos_Instituciones 
 
 
@@ -114,15 +115,52 @@ def perfil(request):
 def temas(request):
     return render(request, 'temas.html')
 
+def crear_calendar(request):
+    return render(request, 'agregar_al_calendario.html')
+
+
+class Cabildo_Onlain(ListView):
+    model = Cabildo_Online
+    template_name = 'calendario.html'
+
+#class Cabildo_OnlineView(View):
+ #   def get(self, request):
+  #      form = Cabildo_OnlineForm
+   #     return render(request, "calendario.html", {"form":form})
+#
+ #   def post(self, request):
+  #      pass
+
+
+
+    
+
+
+
+
 def Cabildo_OnlineView(request):
-    if request.method == "POST" : 
+    form = Cabildo_OnlineForm()
+    if request.method == 'POST':
         form = Cabildo_OnlineForm(request.POST)
         if form.is_valid():
             form.save()
-        return redirect("/calendario")
-    else:
-        form = Cabildo_OnlineForm()
-    return render(request, "calendario.html", {"form" : form})
+    context = {'form' : form}
+    return render(request, 'agregar_al_calendario.html', context)
+
+
+
+#    if request.method == 'POST' : 
+ #       form = Cabildo_OnlineForm(request.POST)
+  #      if form.is_valid():
+   #         form.save()
+    #        return redirect('/cabildos_online')
+     #   else:
+      #      print(form.error)
+    #else:
+     #   form = Cabildo_OnlineForm()
+    #return render(request, 'calendario.html', {'form' : form})
+
+
 
 def cabildo(request):
     context = {}
