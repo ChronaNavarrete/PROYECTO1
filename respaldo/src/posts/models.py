@@ -24,6 +24,16 @@ class Profile(models.Model):
     def __str__(self):
         return f'{self.user.username} Profile'
 
+    #def save(self):
+    #    super().save()
+#
+    #    img = Image.open(self.image.path)
+#
+    #    if img.height > 300 or img.width > 300:
+    #        output_size = (300, 300)
+    #        img.thumbnail(output_size)
+    #        img.save(self.image.path)
+
 CATEGORIAS = (
         ('Valores', 'Valores'),
         ('Derechos', 'Derechos'),
@@ -236,13 +246,6 @@ class Post(models.Model):
     last_update = models.DateTimeField(auto_now = True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     slug = models.SlugField(max_length=200,unique=True)
-    #title = models.CharField(max_length=100)
-    #content = models.TextField()  # importar el otro field
-    #imagen = models.URLField()
-    #publish_date = models.DateTimeField(auto_now_add=True)
-    #last_update = models.DateTimeField(auto_now = True)
-    #author = models.ForeignKey(User, on_delete=models.CASCADE)
-    #slug = models.SlugField()
     
     def save(self, *args,**kwargs):
         self.slug = slugify(self.title)

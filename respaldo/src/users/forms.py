@@ -18,10 +18,10 @@ class LoginForm(AuthenticationForm):
         fields = ['username','password']
 
 
-class ProfileUpdateForm(forms.ModelForm):
-    class Meta:
-        model = Profile
-        fields = ['image']
+#class ProfileUpdateForm(forms.ModelForm):
+    #class Meta:
+        #model = Profile
+        #fields = ['image']
 
 class EditProfileForm(UserChangeForm):
     class Meta:

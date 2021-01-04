@@ -1,12 +1,14 @@
 #borre todo lo que habia aqui y lo deje en web_views
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+
 from posts.models import Post, PostView, Like, Comment, Profile, Dislike
-from .forms import PostForm, CommentForm
+from .forms import PostForm, CommentForm, ProfileUpdateForm
 
 from django.views.generic.edit import FormView 
 from django.http import HttpResponseRedirect
 
+from django.contrib import messages
 
 #cabildos
 import json
@@ -160,6 +162,31 @@ def like(request, slug):
         return redirect('detail', slug=slug)
     Like.objects.create(user=request.user, post=post)
     return redirect('detail', slug=slug)
+
+def profile(request):
+    context = super().get_context_data(**kwargs)
+    model = Profile
+    context['image_form'] = ProfileUpdateForm() 
+
+    if request.method == 'POST':
+        form = ProfileUpdateForm(request.POST, request.FILES) #, instance=request.user.profile.image
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'Tu cuenta ha sido actualizada!')
+            return redirect('perfil')
+
+        else:
+            print(form.errors)
+
+    #else:
+    #    form = ProfileUpdateForm(instance=request.user.profile.image)
+
+    
+    #context = {
+    #    'form': form
+    #}
+    return render(request, 'perfil.html', context)
+
 
 
 '''
