@@ -144,6 +144,7 @@ def Cabildo_OnlineView(request):
         form = Cabildo_OnlineForm(request.POST)
         if form.is_valid():
             form.save()
+            return redirect('/calendario')
     context = {'form' : form}
     return render(request, 'agregar_al_calendario.html', context)
 
