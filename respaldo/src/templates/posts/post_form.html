@@ -83,29 +83,48 @@
 
                     
                 </div>
+
                 <div class="col-lg-4 m-15px-tb blog-aside">
                     <!-- Author -->
                     <div class="widget widget-author">
                         <div class="widget-title">
-                            <h3>Esta es la vista previa</h3>
+                            <h3>Autor</h3>
                         </div>
                         <div class="widget-body">
-                            <p>A tu izquierda puedes ver el formato que usamos para las columnas de opinion</p>
+                            <div class="media align-items-center">
+                                <div class="avatar">
+                                    <img src="{% static 'img/img-perfil-ejemplo.jpg' %}" title="" alt="foto-perfil-usuario">
+                                </div>
+                                <div class="media-body">
+                                    <h6>Tu Nombre</h6>
+                                </div>
+                            </div>
+                            <p>[ejemplo]</p>
+                            <p class="lead">
+                                Desarrollo una opinion sobre <strong>Probidad</strong>, dentro de la categoria <strong>Valores</strong>
+                            </p>
                         </div>
+                    </div> 
 
-                        <div class="widget-body">
-                            <p>uwu</p>
-                        </div>
+                    <!-- End Author -->
 
+                    <div class="widget-title">
+                        <h3>Esta es la vista previa</h3>
+                    </div>
+                    <div class="widget-body">
+                        <p>A tu izquierda puedes ver el formato que usamos para las columnas de opinion</p>
+                        <p>Consiste de una foto, el titulo y el contenido en formato de blog personalizado por ti</p>
+                        <p>Ademas de una pequeña tarjeta de presentacion a un costado</p>
+                    </div>
+
+                    <div class="widget widget-author">
                         <div class="widget-body">
-                            <p>Abajo se encuentra el formulario para crear la publicacion</p>
+                            <p>Abajo encontraras el formulario y podras comenzar a editar tu columna</p>
                         </div>
                         
-
                     </div>
-                    <!-- End Author -->
-                            </div>
-                            
+                    
+                            </div>       
                         </div>
                     </div>
                 </div>
@@ -138,11 +157,6 @@
                             </div>
 
                             <div class="form-group">
-                                <h6>Autor (por favor elija su perfil)</h6>
-                                {{ post_form.author }}
-                            </div>
-
-                            <div class="form-group">
                                 <h6>Imagen de fondo</h6>
                                 {{ post_form.thumbnail }}
                             </div>     
@@ -151,11 +165,6 @@
                                 <h6>Contenido del Articulo</h6>
                                 {{ post_form.content }}
                             </div>   
-
-                            <div class="form-group">
-                                <h6>Slug</h6>
-                                {{ post_form.slug }}
-                            </div>
                         </div>   
 
                         <div class="send">

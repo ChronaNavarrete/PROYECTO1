@@ -46,26 +46,37 @@
         </section>
         
         <section>
-            <div class="presentacion-calendario">
-                
-                <h2>¡Crea y descubre las fechas en que se realizaran los cabildos que te interesan!</h2>
-
-                    <a href="cabildos_online"><button class="btn btn-secondary"><h3>¡Agenda tu cabildo!</h3></button></a>
-
-    
+            
+            <div class="titulo-cabildos">
+                <h2 style="padding-bottom: 20px;" class="text-center">¡Crea y descubre las fechas de las conversas cara a cara!</h2>
             </div>
+            <div style="padding-bottom: 20px;">
+                <p style="font-size: 20px;" class="offset-1 lead">En esta seccion encontraras la agenda de los cabildos online propuestos por otros usuarios</p>
+                <p style="font-size: 20px;" class="offset-1 lead">El objetivo final es poder discutir en vivo y viendose las caras, lo mas cercano a una cabildo en la calle</p>
+            </div>
+            <!--
+                <div style="padding: 40px 10px 50px 50px;">
+                <a href="cabildos_online"><button class="offset-1 btn btn-secondary"><h5>¡Agenda tu cabildo!</h5></button></a>
+            </div>
+            -->
 
         </section>
 
-    </main>
-        <div class="container">
-            <H5> (Haz click en un cabildo para ir a su link de reunion) </H5>
-            <div id = 'calendar'> </div>
-        </div>
+        <section class="contenedor-cabildos">
+            <div style="padding: 20px 20px 20px 20px; border-radius: 20px; background-color: rgb(255, 255, 255);" class="container">
+                <h5>Haz click en un cabildo para ir a su link de reunion</h5>
+                <div class="text-left" style="padding-bottom: 20px; padding-top: 20px;">
+                    <a href="cabildos_online"><button class="offset-1 btn btn-secondary"><h5>¡Agenda tu cabildo!</h5></button></a>
+                </div>
+                
+                <div id = 'calendar'> </div>
+            </div>
+        </section>
+        
             
         
          
-        
+    </main>
 
 </body>
 
@@ -115,7 +126,7 @@
             events: [
                 {% for cabildo in object_list %}
                     {
-                        title: "{{ cabildo.hora }} {{ cabildo.nombre }}",
+                        title: "{{ cabildo.fecha.time }}" + "\n" + "{{ cabildo.nombre }}",
                         start: '{{ cabildo.fecha | date:"Y-m-d" }}',
                         url: "{{ cabildo.link }}"
      

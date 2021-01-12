@@ -126,7 +126,7 @@ text-align: justify;
 /* Calendario */
 
 .contenedor-titulo-calendario{
-    height: 200px;
+    height: 210px;
     background-color: #333;
     overflow-x: hidden;
     padding-top: 20px;
@@ -500,6 +500,8 @@ body {
  }
  .blog-aside .widget-body {
    padding: 15px;
+   overflow: auto;
+   max-height: 100vh;
  }
  .blog-aside .widget-title {
    padding: 15px;

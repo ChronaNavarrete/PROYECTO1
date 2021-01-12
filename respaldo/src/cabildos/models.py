@@ -260,7 +260,6 @@ class Cabildo(models.Model):
 class Cabildo_Online(models.Model):
     nombre = models.CharField(max_length=200)
     fecha = models.DateTimeField(auto_now_add=False)
-    hora = models.CharField(max_length=5)
     link = models.CharField(max_length=200)
 
     def __str__(self):
