@@ -102,6 +102,27 @@
                             <h3>Columnas que podrian interesarte</h3>
                         </div>
                         <div class="widget-body">
+                            <style>
+                            /* width */
+                            ::-webkit-scrollbar {
+                              width: 10px;
+                            }
+                            
+                            /* Track */
+                            ::-webkit-scrollbar-track {
+                              background: #f1f1f1; 
+                            }
+                             
+                            /* Handle */
+                            ::-webkit-scrollbar-thumb {
+                              background: #888; 
+                            }
+                            
+                            /* Handle on hover */
+                            ::-webkit-scrollbar-thumb:hover {
+                              background: #555; 
+                            }
+                            </style>
 
                             {% for post in all_posts %}
                             <div class="latest-post-aside media">

@@ -19,7 +19,7 @@ class User(AbstractUser):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    image = models.ImageField(default= 'default.jpg', upload_to='profile_pics')
+    image = models.ImageField(default= 'img-perfil-ejemplo.jpg', upload_to='profile_pics')
 
     def __str__(self):
         return f'{self.user.username} Profile'
@@ -54,7 +54,7 @@ V_9 = "Descentralizacion"
 V_10 = "Dignidad"
 V_11 = "Diversidad"
 V_12 = "Emprendimiento libre"
-V_13 = "Equidad de gÃ©nero"
+V_13 = "Equidad de genero"
 V_14 = "Estado de derecho"
 V_15 = "Estado garante"
 V_16 = "Estado laico"

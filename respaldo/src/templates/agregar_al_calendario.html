@@ -31,8 +31,8 @@
             <a class="active" style="color:#FFFFFF">Bienvenid@ <b>{{request.user.username}}</b></a>
             <a href="index">Inicio</a>
             <!-- <a href="temas">Temas Constitucionales</a> -->
-            <a href="calendario">Calendario</a>
-            <a href="{% url 'list' %}">Cabildos y Blog</a>
+            <a href="calendario">Cabildos Online</a>
+            <a href="{% url 'list' %}">Columnas de opinion y Blog</a>
              <!-- <a href="cabildo">Cabildos</a> -->
             <div class="topnav-right">
                 <a href="perfil">Tu perfil</a>
@@ -41,24 +41,24 @@
           </div>
     <main>
         <section class="contenedor-titulo-calendario">
-            <h2 class="titulo-calendario">Calendario de cabildos</h2>
+            <h2 class="titulo-calendario">Agenda tu cabildo</h2>
         </section>
         
         <section>
             <div class="presentacion-calendario">
-                <H1>¡Crea y descubre las fechas en que se realizaran los cabildos que te interesan!</H1>
+                <!--
+                    <h2>¡Crea y descubre las fechas en que se realizaran los cabildos que te interesan!</h2>
+                -->
 
                 
 
                 <form method="post">
                     {% csrf_token %}
                     {{ form.as_p }}
-                    <H2> <button type='submit'>Agenda tu Cabildo</button> </H2>
-                    <a href='calendario'>
-                        <h4> <input type="button" value="Vuelve al calendario" /> </h4>
-                    </a>
+                    <a href="cabildos_online"><button type="submit" class="btn btn-secondary"><h3>Agenda tu Cabildo</h3></button></a>
+                    
                 </form>
-
+                <a href="calendario"><button class="btn btn-secondary">Vuelve al calendario</button></a>
                 
             </div>
 

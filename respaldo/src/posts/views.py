@@ -132,7 +132,9 @@ class PostCreateView(CreateView):
         form = self.form_class(request.POST, request.FILES)
         if request.method == "POST":
             if form.is_valid():
-                form.save()
+                instance = form.save(commit=False)
+                instance.author = request.user
+                instance.save()
                 # <process form cleaned data>
             
             #print(form)
